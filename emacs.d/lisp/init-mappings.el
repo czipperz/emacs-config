@@ -28,4 +28,22 @@
 	 (forward-line -2)
 	 (forward-char col)))
 
+;; rebind `C-,' to vim style `o'
+;; rebind `C-.' to vim styoe `O'
+(global-set-key (kbd "C-,")        'vim-style-o)
+(defun vim-style-o () "Puts a new line after the current one and puts the Point there"
+       (interactive)
+       (move-end-of-line nil)
+       (newline)
+       (indent-for-tab-command))
+
+(global-set-key (kbd "C-.")        'vim-style-capital-o)
+(defun vim-style-capital-o () "Puts a new line before the current one and puts the Point there"
+       (interactive)
+       (forward-line -1)
+       (vim-style-o))
+
+;; Unbind `C-z' as its annoying
+(global-unset-key (kbd "C-z"))
+
 (provide 'init-mappings)
