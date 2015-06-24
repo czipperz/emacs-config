@@ -60,4 +60,30 @@
 (global-unset-key (kbd "C-S-a"))
 (global-set-key (kbd "C-S-a") 'move-beginning-of-line)
 
+;; `C-k' acts `dd' instead of until end of line
+;; `C-S-k' maintains old behavior
+(global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "C-S-k") 'kill-line)
+
+;; `C-;' kills to start of text
+;; `C-:' kills to start of line
+(global-set-key (kbd "C-;") 'kill-start-of-text)
+(global-set-key (kbd "C-:") 'kill-start-of-line)
+(defun kill-start-of-line () "Kills to the start of the line"
+       (interactive)
+       (kill-line 0))
+(defun kill-start-of-text () "Kills to the start of the text"
+       (interactive)
+       (let ((curr (point)))
+	 (beginning-of-line-text)
+	 (kill-region curr (point))))
+
+;; Because the prefix should be the group
+(defun package-list () "Display a list of packages.
+This first fetches the updated list of packages before
+displaying, unless a prefix argument NO-FETCH is specified.
+The list is displayed in a buffer named `*Packages*'."
+       (interactive)
+       (list-packages))
+
 (provide 'init-mappings)
