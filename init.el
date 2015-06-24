@@ -9,6 +9,7 @@
 (require 'darcula-theme)
 (require 'magit)
 (require 'helm-config)
+(require 'auto-complete)
 
 (custom-set-variables ;; Your init file should only contain one of these
  '(custom-safe-themes (quote ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90"
@@ -31,3 +32,5 @@
 ;; Helm - auto complete ftw
 (helm-mode 1)
 
+;; Auto Complete - too stronk
+(ac-config-default)
