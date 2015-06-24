@@ -23,7 +23,7 @@
 
 ;(load-theme 'solarized-dark) ; load theme here
 
-(set-frame-font "Meslo LG S DZ")
+(set-default-font "Meslo LG S DZ-12")
 
 ;; Magit
 (setq magit-last-seen-setup-instructions "1.4.0") ; Hide message
