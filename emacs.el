@@ -3,6 +3,7 @@
 
 ; Requirements
 (require 'init-packages)
+(require 'init-markdown)
 (require 'init-powerline)
 (require 'init-mappings)
 (require 'darcula-theme)
