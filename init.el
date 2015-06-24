@@ -31,6 +31,7 @@
 
 ;; Helm - auto complete ftw
 (helm-mode 1)
+(helm-autoresize-mode 1)
 
 ;; Auto Complete - too stronk
 (ac-config-default)
