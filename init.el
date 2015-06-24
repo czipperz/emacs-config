@@ -10,6 +10,7 @@
 (require 'magit)
 (require 'helm-config)
 (require 'auto-complete)
+(require 'smartparens-config)
 
 (custom-set-variables ;; Your init file should only contain one of these
  '(custom-safe-themes (quote ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90"
@@ -25,8 +26,7 @@
 (set-frame-font "Meslo LG S DZ")
 
 ;; Magit
-; Hide message
-(setq magit-last-seen-setup-instructions "1.4.0")
+(setq magit-last-seen-setup-instructions "1.4.0") ; Hide message
 (autoload 'magit-status "magit" nil t)
 
 ;; Helm - auto complete ftw
@@ -35,3 +35,6 @@
 
 ;; Auto Complete - too stronk
 (ac-config-default)
+
+;; Auto match parens (highlight)
+(show-smartparens-global-mode)
