@@ -1,17 +1,19 @@
 ; Custom scripts `require`
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-; Requirements
+; Init scripts
 (require 'init-packages)
 (require 'init-markdown)
 (require 'init-powerline)
 (require 'init-mappings)
+(require 'init-yasnippet)
+
+; Other requires
 (require 'darcula-theme)
 (require 'magit)
 (require 'helm-config)
 (require 'auto-complete)
 (require 'smartparens-config)
-(require 'yasnippet)
 
 (custom-set-variables ;; Your init file should only contain one of these
  '(custom-safe-themes (quote ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90"
@@ -39,6 +41,3 @@
 
 ;; Auto match parens (highlight)
 (show-smartparens-global-mode)
-
-;; Yasnippet
-(yas-global-mode 1)
