@@ -17,10 +17,10 @@
 
 (defface my-pl-stupid
                     ;unused             ;separator color
-  '((t (:foreground "white" :background "#4fddb0")))
+  '((t (:foreground "#4fddb0" :background "#4fddb0")))
   "blah")
 (defface my-pl-stupid-i
-  '((t (:foreground "white" :background "#3ba584")))
+  '((t (:foreground "#3ba584" :background "#3ba584")))
   "blah")
 
 (defface my-pl-segment2-active
