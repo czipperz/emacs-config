@@ -51,5 +51,6 @@
 (global-set-key (kbd "H-q") 'delete-window)
 (global-set-key (kbd "H-v") 'split-window-right)
 (global-set-key (kbd "H-h") 'split-window-below)
+(global-set-key (kbd "H-o") 'delete-other-windows)
 
 (provide 'init-mappings)
