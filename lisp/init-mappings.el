@@ -88,5 +88,8 @@ The list is displayed in a buffer named `*Packages*'."
 
 (global-set-key (kbd "H-c") 'comment-line)
 (gloabl-set-key (kbd "H-u") 'uncomment-line)
+(global-set-key (kbd "H-q") 'delete-window)
+(gloabl-set-key (kbd "H-v") 'split-window-right)
+(global-set-key (kbd "H-h") 'split-window-below)
 
 (provide 'init-mappings)
