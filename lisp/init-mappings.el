@@ -1,16 +1,17 @@
-;; C-c commands
-; Show unsaved edits
+;;; C-c commands
+;; Show unsaved edits
 (global-unset-key (kbd "C-c d"))
 (global-set-key (kbd "C-c d") 'diff-buffer-with-current-file)
 (defun diff-buffer-with-current-file () "Shows differences in the current buffer since the last save"
        (interactive)
        (diff-buffer-with-file))
-; Show git status
+;; Show git status
 (global-unset-key (kbd "C-c s"))
 (global-set-key (kbd "C-c s") 'magit-status)
-; Terminal
+;; Terminal
 (global-unset-key (kbd "C-c t"))
 (global-set-key (kbd "C-c t") 'term)
+
 
 ;; Move current line (where Point is) down one
 (global-unset-key (kbd "M-n"))
@@ -22,7 +23,6 @@
 	 (transpose-lines 1)
 	 (forward-line -1)
 	 (forward-char col)))
-
 ;; Move current line (where Point is) down one
 (global-unset-key (kbd "M-p"))
 (global-set-key (kbd "M-p") 'move-line-up)
