@@ -86,4 +86,7 @@ The list is displayed in a buffer named `*Packages*'."
        (interactive)
        (list-packages))
 
+(global-set-key (kbd "H-c") 'comment-line)
+(gloabl-set-key (kbd "H-u") 'uncomment-line)
+
 (provide 'init-mappings)
