@@ -3,10 +3,6 @@
 (global-set-key (kbd "C-c s") 'magit-status)
 (global-set-key (kbd "C-c t") 'term)
 
-
-(global-set-key (kbd "M-n") 'move-line-down)
-(global-set-key (kbd "M-p") 'move-line-up)
-
 (global-set-key (kbd "C-,")        'vim-style-o)
 (global-set-key (kbd "C-.")        'vim-style-capital-o)
 

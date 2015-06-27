@@ -3,21 +3,6 @@
        (diff-buffer-with-file))
 
 
-(defun move-line-down () "Moves the current line down by one"
-       (interactive)
-       (let ((col (current-column)))
-	 (forward-line 1)
-	 (transpose-lines 1)
-	 (forward-line -1)
-	 (forward-char col)))
-(defun move-line-up () "Moves the current line up by one"
-       (interactive)
-       (let ((col (current-column)))
-	 (transpose-lines 1)
-	 (forward-line -2)
-	 (forward-char col)))
-
-
 (defun vim-style-o () "Puts a new line after the current one and puts the Point there"
        (interactive)
        (move-end-of-line nil)
