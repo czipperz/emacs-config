@@ -1,7 +1,12 @@
 ; Custom scripts `require`
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(dolist (i '(;; Init scripts
+;; Hide menubar
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+(dolist (i '(darcula-theme		;Force theme to load first
+	     ;; Init scripts
 	     init-packages
 	     init-markdown
 	     init-powerline
@@ -9,7 +14,6 @@
 	     init-yasnippet
 	     init-functions
 	     ;; Other requires
-	     darcula-theme
 	     magit
 	     helm-config
 	     auto-complete
@@ -41,10 +45,6 @@
 
 ;; Auto match parens (highlight)
 (show-smartparens-global-mode)
-
-;; Hide menubar
-(menu-bar-mode -1)
-(tool-bar-mode -1)
 
 ;; Line numbers
 (global-linum-mode)
