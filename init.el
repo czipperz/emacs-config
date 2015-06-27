@@ -45,3 +45,11 @@
 ;; Hide menubar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+;; Line numbers
+(global-linum-mode)
+(setq linum-format " %d")
+
+;; 4 spaces for c languages
+(setq c-basic-offset 4
+      c-default-style "java")
