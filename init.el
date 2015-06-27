@@ -5,9 +5,9 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(dolist (i '(darcula-theme		;Force theme to load first
-	     ;; Init scripts
+(dolist (i '(;; Init scripts
 	     init-packages
+	     darcula-theme		;Minimize white time
 	     init-markdown
 	     init-powerline
 	     init-mappings
