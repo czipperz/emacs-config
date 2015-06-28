@@ -10,8 +10,9 @@
        (indent-for-tab-command))
 (defun vim-style-capital-o () "Puts a new line before the current one and puts the Point there"
        (interactive)
-       (forward-line -1)
-       (vim-style-o))
+       (move-beginning-of-line nil)
+       (open-line 1)
+       (indent-for-tab-command))
 
 
 (defun kill-start-of-line () "Kills to the start of the line"
