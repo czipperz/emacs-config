@@ -23,4 +23,7 @@
 (global-set-key (kbd "H-h") 'split-window-below)
 (global-set-key (kbd "H-o") 'delete-other-windows)
 
+(global-set-key (kbd "M-<") 'my/beginning-of-buffer)
+(global-set-key (kbd "M->") 'my/end-of-buffer)
+
 (provide 'init-mappings)

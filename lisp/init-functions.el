@@ -41,4 +41,14 @@
 	 (uncomment-region (mark) (point))))
 
 
+(defun my/beginning-of-buffer () "Goes to the beginning
+of the buffer without moving the mark"
+       (interactive)
+       (goto-char (point-min)))
+(defun my/end-of-buffer () "Goes to the end of the buffer
+without moving the mark"
+       (interactive)
+       (goto-char (point-max)))
+
+
 (provide 'init-functions)
