@@ -1,4 +1,4 @@
-; Custom scripts `require`
+;; Custom scripts `require`
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 ;; Hide menubar
