@@ -25,15 +25,6 @@
 	 (kill-region curr (point))))
 
 
-;; Because the prefix should be the group
-(defun package-list () "Display a list of packages.
-This first fetches the updated list of packages before
-displaying, unless a prefix argument NO-FETCH is specified.
-The list is displayed in a buffer named `*Packages*'."
-       (interactive)
-       (list-packages))
-
-
 (defun comment-line () "Comments the current line"
        (interactive)
        (save-excursion
