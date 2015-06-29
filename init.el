@@ -53,6 +53,7 @@
 ;; 4 spaces for c languages
 (setq c-basic-offset 4
       c-default-style "java")
+(push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
 
 ;; Visible mark
 (require 'visible-mark)
