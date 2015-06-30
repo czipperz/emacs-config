@@ -15,6 +15,7 @@
 	     init-functions
 	     ;; Other requires
 	     magit
+	     tuareg
 	     helm-config
 	     auto-complete
 	     smartparens-config))
