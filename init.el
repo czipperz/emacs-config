@@ -14,11 +14,12 @@
 	     init-yasnippet
 	     init-functions
 	     ;; Other requires
-	     magit
-	     tuareg
-	     helm-config
-	     auto-complete
-	     smartparens-config))
+	     magit			;Git
+	     hi2			;haskell indent
+	     tuareg			;Ocaml
+	     helm-config		;completion for menus
+	     auto-complete		;completion for text
+	     smartparens-config))	;matching grouping symbols highlighted
   (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
@@ -65,3 +66,6 @@
     (t (:background "magenta"))) "")
 ;; (setq visible-mark-max 2)
 (setq visible-mark-faces '(visible-mark-face1 visible-mark-face2))
+
+;; Haskell indentation
+(add-hook 'haskell-mode-hook 'turn-on-hi2)
