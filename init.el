@@ -19,8 +19,8 @@
 	     tuareg			;Ocaml
 	     helm-config		;completion for menus
 	     auto-complete		;completion for text
-	     smartparens-config))	;matching grouping symbols highlighted
-  (require i))
+	     smartparens-config	        ;matching grouping symbols highlighted
+  )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
  '(custom-safe-themes '("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90"
