@@ -22,6 +22,7 @@
 	     dired-details
 	     visible-mark
 	     ;; yasnippet
+	     rainbow-delimiters
   )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
@@ -30,6 +31,7 @@
 			"8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
 			default)))
 (custom-set-faces    ; Your init file should only contain one of these
+ '(rainbow-delimiters-depth-1-face )
  )
 
 ;;(load-theme 'solarized-dark) ; load theme here
@@ -73,3 +75,6 @@
 
 ;; Yasnippet
 ;; (yas-global-mode 1)
+
+;; Rainbow delimeters
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
