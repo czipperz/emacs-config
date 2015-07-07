@@ -11,7 +11,6 @@
 	     init-markdown
 	     init-powerline
 	     init-mappings
-	     init-yasnippet
 	     init-functions
 	     ;; Other requires
 	     magit			;Git
@@ -22,6 +21,7 @@
 	     smartparens-config	        ;matching grouping symbols highlighted
 	     dired-details
 	     visible-mark
+	     ;; yasnippet
   )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
@@ -70,3 +70,6 @@
 
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
+
+;; Yasnippet
+;; (yas-global-mode 1)
