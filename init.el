@@ -20,6 +20,7 @@
 	     helm-config		;completion for menus
 	     auto-complete		;completion for text
 	     smartparens-config	        ;matching grouping symbols highlighted
+	     dired-details
 	     visible-mark
   )) (require i))
 
