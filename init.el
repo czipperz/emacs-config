@@ -20,6 +20,7 @@
 	     helm-config		;completion for menus
 	     auto-complete		;completion for text
 	     smartparens-config	        ;matching grouping symbols highlighted
+	     visible-mark
   )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
@@ -58,7 +59,6 @@
 (push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
 
 ;; Visible mark
-(require 'visible-mark)
 (global-visible-mark-mode 1)
 
 (defface visible-mark-active
