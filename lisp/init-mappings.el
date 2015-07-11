@@ -1,11 +1,10 @@
-(global-set-key (kbd "C-c d") 'diff-buffer-with-current-file)
-(global-set-key (kbd "C-c s") 'magit-status)
-(global-set-key (kbd "C-c t") 'term)
-
 (global-set-key (kbd "C-,") 'vim-style-o)
 (global-set-key (kbd "C-.") 'vim-style-capital-o)
 
 (global-unset-key (kbd "C-z"))		;This would sleep emacs so unbound it
+(global-set-key (kbd "C-z d") 'diff-buffer-with-current-file)
+(global-set-key (kbd "C-z s") 'magit-status)
+(global-set-key (kbd "C-z t") 'term)
 
 (global-set-key (kbd "C-a") 'beginning-of-line-text)
 (global-set-key (kbd "C-S-a") 'move-beginning-of-line)
