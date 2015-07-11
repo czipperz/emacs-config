@@ -2,8 +2,8 @@
 (global-set-key (kbd "C-c s") 'magit-status)
 (global-set-key (kbd "C-c t") 'term)
 
-(global-set-key (kbd "C-,")        'vim-style-o)
-(global-set-key (kbd "C-.")        'vim-style-capital-o)
+(global-set-key (kbd "C-,") 'vim-style-o)
+(global-set-key (kbd "C-.") 'vim-style-capital-o)
 
 (global-unset-key (kbd "C-z"))		;This would sleep emacs so unbound it
 
