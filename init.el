@@ -18,7 +18,7 @@
 	     tuareg			;Ocaml
 	     helm-config		;completion for menus
 	     auto-complete		;completion for text
-	     smartparens-config	        ;matching grouping symbols highlighted
+	     smartparens-config	        ;matching grouping symbols highlighted with cursor
 	     dired-details
 	     visible-mark
 	     ;; yasnippet
