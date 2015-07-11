@@ -23,6 +23,7 @@
 	     visible-mark
 	     ;; yasnippet
 	     rainbow-delimiters		;matching grouping symbols colored specially based on level
+	     edit-server		;chrome edit server
 	     )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
@@ -77,3 +78,8 @@
 
 ;; Rainbow delimeters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; Chrome edit server
+(when (daemonp)
+  (edit-server-start)
+  (message "Edit Server for Chrome up"))
