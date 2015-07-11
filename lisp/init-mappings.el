@@ -2,6 +2,7 @@
 (global-set-key (kbd "C-.") 'vim-style-capital-o)
 
 (global-unset-key (kbd "C-z"))		;This would sleep emacs so unbound it
+(global-unset-key (kbd "C-x C-z"))
 (global-set-key (kbd "C-z d") 'diff-buffer-with-current-file)
 (global-set-key (kbd "C-z s") 'magit-status)
 (global-set-key (kbd "C-z t") 'term)
