@@ -26,4 +26,6 @@
 (global-set-key (kbd "M-<") 'my/beginning-of-buffer)
 (global-set-key (kbd "M->") 'my/end-of-buffer)
 
+(global-set-key (kbd "C-`") 'list-packages) ; note that this doesn't work in shells because they are dumb
+
 (provide 'init-mappings)
