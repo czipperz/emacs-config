@@ -22,7 +22,7 @@
 	     dired-details
 	     visible-mark
 	     ;; yasnippet
-	     rainbow-delimiters
+	     rainbow-delimiters		;matching grouping symbols colored specially based on level
   )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
