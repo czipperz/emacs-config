@@ -24,8 +24,8 @@
 	     ;; yasnippet
 	     rainbow-delimiters		;matching grouping symbols colored specially based on level
 	     edit-server		;chrome edit server
-	     scroll-bar-mode		;remove scrollbar
-	     ace-window
+	     ;; scroll-bar-mode		;remove scrollbar
+	     ;; ace-window
 	     )) (require i))
 
 (custom-set-variables ; Your init file should only contain one of these
