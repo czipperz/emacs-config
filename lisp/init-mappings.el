@@ -7,9 +7,6 @@
 (global-set-key (kbd "C-z s") 'magit-status)
 (global-set-key (kbd "C-z t") 'term)
 
-(global-set-key (kbd "C-a") 'beginning-of-line-text)
-(global-set-key (kbd "C-S-a") 'move-beginning-of-line)
-
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-k") 'kill-line) ; note that this doesn't work in shells because they are dumb
 
