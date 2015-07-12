@@ -27,4 +27,7 @@
 
 ;; (global-set-key (kbd "M-p") 'ace-window)
 
+(define-key key-translation-map [?\C-h] [?\C-?])
+(global-set-key (kbd "C-h") (lambda (backward-delete-char-untabify 1)))
+
 (provide 'init-mappings)
