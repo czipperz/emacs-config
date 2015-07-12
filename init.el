@@ -26,6 +26,7 @@
 	     edit-server		;chrome edit server
 	     ;; scroll-bar-mode		;remove scrollbar
 	     ;; ace-window
+	     highlight-quoted
 	     highlight-current-line
 	     )) (require i))
 
@@ -93,6 +94,9 @@
 
 ;; Highlight current line
 (highlight-current-line-on t)
+
+;; Highlight quoted
+(add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
 ;; Chrome edit server
 (when (daemonp)
