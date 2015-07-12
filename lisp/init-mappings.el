@@ -28,4 +28,6 @@
 
 (global-set-key (kbd "C-`") 'list-packages) ; note that this doesn't work in shells because they are dumb
 
+(global-set-key (kbd "M-p") 'ace-window)
+
 (provide 'init-mappings)
