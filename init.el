@@ -102,3 +102,5 @@
 (when (daemonp)
   (edit-server-start)
   (message "Edit Server for Chrome up"))
+
+(put 'set-goal-column 'disabled nil)

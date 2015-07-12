@@ -51,6 +51,4 @@ without moving the mark"
        (goto-char (point-max)))
 
 
-(put 'set-goal-column 'disabled nil)
-
 (provide 'init-functions)
