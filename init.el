@@ -64,7 +64,7 @@
 
 ;; Line numbers
 (global-linum-mode)
-(setq linum-format " %d")
+(setq linum-format "%d ")
 
 ;; 4 spaces for c languages
 (setq c-basic-offset 4
