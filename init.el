@@ -64,6 +64,8 @@
 
 ;; Line numbers
 (global-linum-mode)
+;; Fringe style for graphical mode
+(set-fringe-style 0)
 (setq linum-format "%d ")
 
 ;; 4 spaces for c languages
