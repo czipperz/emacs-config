@@ -7,7 +7,7 @@
 
 (dolist (i '(;; Init scripts
 	     init-packages
-	     darcula-theme		;Minimize white time
+	     ;; darcula-theme		;Minimize white time
 	     init-markdown
 	     init-powerline
 	     init-mappings
@@ -47,7 +47,7 @@
  '(highlight-current-line-face ((t (:background "gray0"))))
  '(visible-mark-face1 ((t (:background "deep sky blue")))))
 
-;;(load-theme 'solarized-dark) ; load theme here
+(load-theme 'solarized-dark) ; load theme here
 
 (set-default-font "Meslo LG S DZ-12")
 
