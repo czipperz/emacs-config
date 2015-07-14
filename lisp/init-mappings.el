@@ -28,10 +28,10 @@
 ;; (global-set-key (kbd "M-p") 'ace-window)
 
 (define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "C-h") (lambda (backward-delete-char-untabify 1)))
+(global-set-key (kbd "C-h") (lambda "Use `C-h' to delete the previous character. Use `F1' to access help" (backward-delete-char-untabify 1)))
 
-(global-set-key (kbd "<return>") (lambda () (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
-(global-set-key (kbd "<backspace>") (lambda () (interactive) (message "Backspace is disabled, use `C-h'")))
+(global-set-key (kbd "<return>") (lambda () "Return is disabled, use `C-m', `C-j', or `C-o' instead" (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
+(global-set-key (kbd "<backspace>") (lambda () "Backspace is disabled, use `C-h' instead" (interactive) (message "Backspace is disabled, use `C-h' instead")))
 (global-set-key (kbd "<tab>") (lambda () "Tab is disabled, use `C-i' instead" (interactive) (message "Tab is disabled, use `C-i' instead")))
 
 (provide 'init-mappings)
