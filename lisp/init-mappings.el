@@ -30,4 +30,7 @@
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "C-h") (lambda (backward-delete-char-untabify 1)))
 
+(global-set-key (kbd "<return>") (lambda () (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
+(global-set-key (kbd "<backspace>") (lambda () (interactive) (message "Backspace is disabled, use `C-h'")))
+
 (provide 'init-mappings)
