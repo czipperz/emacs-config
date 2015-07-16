@@ -20,7 +20,6 @@
 	     auto-complete		;completion for text
 	     smartparens-config	        ;matching grouping symbols highlighted with cursor
 	     dired-details
-	     visible-mark
 	     ;; yasnippet
 	     rainbow-delimiters		;matching grouping symbols colored specially based on level
 	     edit-server		;chrome edit server
@@ -44,8 +43,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-current-line-face ((t (:background "gray0"))))
- '(visible-mark-face1 ((t (:background "deep sky blue")))))
+ '(highlight-current-line-face ((t (:background "gray0")))))
 
 (load-theme 'solarized-dark) ; load theme here
 
@@ -75,15 +73,6 @@
 (setq c-basic-offset 4
       c-default-style "java")
 (push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
-
-;; Visible mark
-(global-visible-mark-mode 1)
-
-(defface visible-mark-active
-  '((((type tty) (class mono)))
-    (t (:background "magenta"))) "")
-;; (setq visible-mark-max 2)
-(setq visible-mark-faces '(visible-mark-face1 visible-mark-face2))
 
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
