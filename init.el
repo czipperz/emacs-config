@@ -93,3 +93,4 @@
   (message "Edit Server for Chrome up"))
 
 (put 'set-goal-column 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
