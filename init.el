@@ -12,6 +12,7 @@
 	     init-powerline
 	     init-mappings
 	     init-functions
+             init-mode-font
 	     ;; Other requires
 	     magit			;Git
 	     hi2			;haskell indent
