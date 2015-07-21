@@ -27,18 +27,24 @@
 ;; (global-set-key (kbd "M-p") 'ace-window)
 
 (define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "C-h") (lambda "Use `C-h' to delete the previous character. Use `F1' to access help" (backward-delete-char-untabify 1)))
+(global-set-key (kbd "C-h") (lambda "Use `C-h' to delete the previous character. Use `F1' to access help"
+                              (interactive) (backward-delete-char-untabify 1)))
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 (global-set-key (kbd "M-h") 'backward-kill-sexp)
 (global-set-key (kbd "C-x C-M-h") 'mark-defun)
 (global-set-key (kbd "C-x M-h") 'mark-paragraph)
 (global-set-key (kbd "C-x C-h") 'help)
 
-(global-set-key (kbd "<return>") (lambda () "Return is disabled, use `C-m', `C-j', or `C-o' instead" (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
-(global-set-key (kbd "<backspace>") (lambda () "Backspace is disabled, use `C-h' instead" (interactive) (message "Backspace is disabled, use `C-h' instead")))
-(global-set-key (kbd "<C-backspace>") (lambda () "C-Backspace is disabled, use `C-M-h' instead" (interactive) (message "Backspace is disabled, use `C-h' instead")))
-(global-set-key (kbd "<M-backspace>") (lambda () "M-Backspace is disabled, use `C-M-h' instead" (interactive) (message "Backspace is disabled, use `C-h' instead")))
-(global-set-key (kbd "<tab>") (lambda () "Tab is disabled, use `C-i' instead" (interactive) (message "Tab is disabled, use `C-i' instead")))
+(global-set-key (kbd "<return>") (lambda () "Return is disabled, use `C-m', `C-j', or `C-o' instead"
+                                   (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
+(global-set-key (kbd "<backspace>") (lambda () "Backspace is disabled, use `C-h' instead"
+                                      (interactive) (message "Backspace is disabled, use `C-h' instead")))
+(global-set-key (kbd "<C-backspace>") (lambda () "C-Backspace is disabled, use `C-M-h' instead"
+                                        (interactive) (message "Backspace is disabled, use `C-h' instead")))
+(global-set-key (kbd "<M-backspace>") (lambda () "M-Backspace is disabled, use `C-M-h' instead"
+                                        (interactive) (message "Backspace is disabled, use `C-h' instead")))
+(global-set-key (kbd "<tab>") (lambda () "Tab is disabled, use `C-i' instead"
+                                (interactive) (message "Tab is disabled, use `C-i' instead")))
 
 (global-set-key (kbd "C-x 8 l") "λ")
 
