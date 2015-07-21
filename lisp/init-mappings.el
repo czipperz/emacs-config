@@ -40,4 +40,6 @@
 (global-set-key (kbd "<M-backspace>") (lambda () "M-Backspace is disabled, use `C-M-h' instead" (interactive) (message "Backspace is disabled, use `C-h' instead")))
 (global-set-key (kbd "<tab>") (lambda () "Tab is disabled, use `C-i' instead" (interactive) (message "Tab is disabled, use `C-i' instead")))
 
+(global-set-key (kbd "C-x 8 l") (lambda () "Insert λ character" (interactive) (insert "λ")))
+
 (provide 'init-mappings)
