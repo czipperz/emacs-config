@@ -59,6 +59,7 @@
                                     (just-one-space)
                                     (indent-for-tab-command)
                                     (move-end-of-line nil)
+                                    (just-one-space)
                                     (backward-delete-char-untabify 1))))
 
 (provide 'init-mappings)
