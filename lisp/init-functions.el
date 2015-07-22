@@ -21,32 +21,32 @@
 (defun kill-start-of-text () "Kills to the start of the text"
        (interactive)
        (let ((curr (point)))
-	 (beginning-of-line-text)
-	 (kill-region curr (point))))
+         (beginning-of-line-text)
+         (kill-region curr (point))))
 
 
 (defun comment-line () "Comments the current line"
        (interactive)
        (save-excursion
-	 (move-beginning-of-line 1)
-	 (set-mark (point))
-	 (move-end-of-line 1)
-	 (comment-region (mark) (point))))
+         (move-beginning-of-line 1)
+         (set-mark (point))
+         (move-end-of-line 1)
+         (comment-region (mark) (point))))
 (defun uncomment-line () "Uncomments the current line"
        (interactive)
        (save-excursion
-	 (move-beginning-of-line 1)
-	 (set-mark (point))
-	 (move-end-of-line 1)
-	 (uncomment-region (mark) (point))))
+         (move-beginning-of-line 1)
+         (set-mark (point))
+         (move-end-of-line 1)
+         (uncomment-region (mark) (point))))
 
 
 (defun my/beginning-of-buffer () "Goes to the beginning
-of the buffer without moving the mark"
+ of the buffer without moving the mark"
        (interactive)
        (goto-char (point-min)))
 (defun my/end-of-buffer () "Goes to the end of the buffer
-without moving the mark"
+ without moving the mark"
        (interactive)
        (goto-char (point-max)))
 
@@ -60,7 +60,7 @@ without moving the mark"
   (shell-command (if (equal extension nil) "etags -e -R ." (format "etags -e -R *.%s" extension))))
 (defadvice find-tag (around refresh-etags activate)
   "Rerun etags and reload tags if tag not found and redo find-tag.
-If buffer is modified, ask about save before running etags"
+ If buffer is modified, ask about save before running etags"
   (let ((extension (file-name-extension (buffer-file-name))))
     (condition-case err
         ad-do-it

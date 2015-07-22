@@ -16,7 +16,7 @@
   "Powerline third segment inactive face.")
 
 (defface my-pl-stupid
-                    ;unused             ;separator color
+                                        ;unused             ;separator color
   '((t (:foreground "#4fddb0" :background "#4fddb0")))
   "blah")
 (defface my-pl-stupid-i
@@ -41,9 +41,9 @@
                           (mode-line (if active 'my-pl-mode-line-active 'my-pl-mode-line-inactive))
                           (face1     (if active 'my-pl-segment1-active  'my-pl-segment1-inactive))
                           (face2     (if active 'my-pl-segment2-active  'my-pl-segment2-inactive))
-			  (stupid    (if active 'my-pl-stupid           'my-pl-stupid-i))
+                          (stupid    (if active 'my-pl-stupid           'my-pl-stupid-i))
                           (separator-left (intern (format "powerline-%s-%s"
-							  (powerline-current-separator)
+                                                          (powerline-current-separator)
                                                           (car powerline-default-separator-dir))))
                           (separator-right (intern (format "powerline-%s-%s"
                                                            (powerline-current-separator)
@@ -71,19 +71,19 @@
                                        (powerline-raw (list (nyan-create)) face2 'l))))
                           (rhs (list (powerline-raw global-mode-string face2 'r)
                                      (funcall separator-right face2 stupid)
-				     (unless window-system
-				       (powerline-raw (char-to-string #xe0a1) face1 'l))
-				     (powerline-raw "%4l" face1 'l)
-				     (powerline-raw ":" face1 'l)
-				     (powerline-raw "%3c" face1 'r)
-				     (funcall separator-right stupid mode-line)
-				     (powerline-raw " ")
-				     (powerline-raw "%6p" nil 'r)
+                                     (unless window-system
+                                       (powerline-raw (char-to-string #xe0a1) face1 'l))
+                                     (powerline-raw "%4l" face1 'l)
+                                     (powerline-raw ":" face1 'l)
+                                     (powerline-raw "%3c" face1 'r)
+                                     (funcall separator-right stupid mode-line)
+                                     (powerline-raw " ")
+                                     (powerline-raw "%6p" nil 'r)
                                      (when powerline-display-hud
                                        (powerline-hud face2 face1)))))
-		     (concat (powerline-render lhs)
-			     (powerline-fill face2 (powerline-width rhs))
-			     (powerline-render rhs)))))))
+                     (concat (powerline-render lhs)
+                             (powerline-fill face2 (powerline-width rhs))
+                             (powerline-render rhs)))))))
 
 (my-powerline-theme)
 
