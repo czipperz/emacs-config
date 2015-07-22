@@ -1,4 +1,4 @@
-(font-lock-add-keywords 'haskell-mode-hook
+(font-lock-add-keywords 'haskell-mode
                         '(("(\\(\\\\\\)"
                            (0 (progn (compose-region (match-beginning 1) (match-end 1) ?λ) nil)))))
 
