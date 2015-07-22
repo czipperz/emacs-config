@@ -51,4 +51,12 @@
 
 (global-set-key (kbd "C-x 8 l") "λ")
 
+(global-set-key (kbd "C-z SPC") (lambda () (interactive)
+                                  (my/end-of-buffer)
+                                  (while (not (equal (point) 1))
+                                    (previous-line)
+                                    (move-beginning-of-line nil)
+                                    (just-one-space)
+                                    (indent-for-tab-command))))
+
 (provide 'init-mappings)
