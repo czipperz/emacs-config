@@ -51,4 +51,25 @@ without moving the mark"
        (goto-char (point-max)))
 
 
+(defun create-tags (dir) "Create `ctags' file for a given directory"
+       (interactive "DDirectory: ")
+       (shell-command (format "ctags -e -R %s" (directory-file-name dir))))
+(defun er-refresh-etags (&optional extension)
+  "Run etags on all peer files in current dir and reload them silently."
+  (interactive)
+  (shell-command (if (equal extension nil) "etags -e -R ." (format "etags -e -R *.%s" extension))))
+(defadvice find-tag (around refresh-etags activate)
+  "Rerun etags and reload tags if tag not found and redo find-tag.
+If buffer is modified, ask about save before running etags"
+  (let ((extension (file-name-extension (buffer-file-name))))
+    (condition-case err
+        ad-do-it
+      (error (and (buffer-modified-p)
+                  (not (ding))
+                  (y-or-n-p "Buffer is modified, save it? ")
+                  (save-buffer))
+             (er-refresh-etags extension)
+             ad-do-it))))
+
+
 (provide 'init-functions)
