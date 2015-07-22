@@ -13,7 +13,7 @@
 (global-set-key (kbd "C-z h") 'split-window-below)
 (global-set-key (kbd "C-z o") 'delete-other-windows)
 (global-set-key (kbd "C-z C-a") 'beginning-of-visual-line)
-(global-set-key (kbd "C-z C-e") 'end-of-visual-line)
+(global-set-key (kbd "C-z C-e") (lambda () (interactive) (end-of-visual-line) (backward-char)))
 
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-k") 'kill-line) ; note that this doesn't work in shells because they are dumb
