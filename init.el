@@ -32,8 +32,6 @@
 	     ;; ace-window
 	     highlight-quoted
 	     highlight-current-line
-             ;; Init scripts
-	     init-packages
 	     )) (require i))
 
 (custom-set-variables
@@ -51,3 +49,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(highlight-current-line-face ((t (:background "gray0")))))
+
+;; Init scripts
+(require 'init-packages)
