@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-z t") 'term)
 (global-set-key (kbd "C-z c") 'comment-line)
 (global-set-key (kbd "C-z u") 'uncomment-line)
+(global-set-key (kbd "C-z C-c") 'comment-region)
+(global-set-key (kbd "C-z C-u") 'uncomment-region)
 (global-set-key (kbd "C-z q") 'delete-window)
 (global-set-key (kbd "C-z v") 'split-window-right)
 (global-set-key (kbd "C-z h") 'split-window-below)
