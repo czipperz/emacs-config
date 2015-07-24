@@ -36,6 +36,8 @@
 (global-set-key (kbd "C-x C-M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x M-h") 'backward-kill-sexp)
 (global-set-key (kbd "C-x C-h") 'help)
+(global-set-key (kbd "C-'") 'backward-kill-word)
+(global-set-key (kbd "C-\"") 'backward-kill-sexp)
 
 (global-set-key (kbd "<return>") (lambda () "Return is disabled, use `C-m', `C-j', or `C-o' instead"
                                    (interactive) (message "Return is disabled, use `C-m', `C-j', or `C-o' instead")))
