@@ -27,6 +27,11 @@
 (global-set-key (kbd "M->") 'my/end-of-buffer)
 
 (global-set-key (kbd "C-`") 'list-packages) ; note that this doesn't work in shells because they are dumb
+(global-set-key (kbd "C-~") (lambda () (interactive)
+                              (list-packages)
+                              (package-menu-mark-upgrades)
+                              (package-menu-execute)
+                              (quit-window)))
 
 ;; (global-set-key (kbd "M-p") 'ace-window)
 
