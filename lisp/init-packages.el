@@ -42,6 +42,7 @@
 (highlight-current-line-on t)
 
 ;; Highlight quoted
+(add-hook 'lisp-mode-hook 'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
 ;; Chrome edit server
