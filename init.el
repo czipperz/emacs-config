@@ -18,17 +18,17 @@
              init-functions
              init-mode-font
              ;; Other requires
-             magit			;Git
-             hi2			;haskell indent
-             tuareg			;Ocaml
-             helm-config		;completion for menus
-             auto-complete		;completion for text
-             smartparens-config	        ;matching grouping symbols highlighted with cursor
+             magit                      ;Git
+             hi2                        ;haskell indent
+             tuareg                     ;Ocaml
+             helm-config                ;completion for menus
+             auto-complete              ;completion for text
+             smartparens-config         ;matching grouping symbols highlighted with cursor
              dired-details
              ;; yasnippet
-             rainbow-delimiters		;matching grouping symbols colored specially based on level
-             edit-server		;chrome edit server
-             ;; scroll-bar-mode		;remove scrollbar
+             rainbow-delimiters         ;matching grouping symbols colored specially based on level
+             edit-server                ;chrome edit server
+             ;; scroll-bar-mode         ;remove scrollbar
              ;; ace-window
              highlight-quoted
              highlight-current-line
