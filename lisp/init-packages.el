@@ -53,4 +53,6 @@
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (provide 'init-packages)
