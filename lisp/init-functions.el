@@ -111,7 +111,10 @@
     (insert-register ?n 1)
     (insert " = ")
     (insert-register ?n 1)
-    (insert "; }")))
+    (insert "; }")
+
+    (set-register ?t reg-t)
+    (set-register ?n reg-n)))
 
 
 (provide 'init-functions)
