@@ -20,9 +20,7 @@
   (kill-line 0))
 (defun kill-start-of-text () "Kills to the start of the text"
   (interactive)
-  (let ((curr (point)))
-    (beginning-of-line-text)
-    (kill-region curr (point))))
+  (kill-region (point) (progn (beginning-of-line-text) (point))))
 
 
 (defun comment-line () "Comments the current line"
