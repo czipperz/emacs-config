@@ -36,7 +36,8 @@
 ;; (global-set-key (kbd "M-p") 'ace-window)
 
 (define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "C-h") (lambda "Use `C-h' to delete the previous character. Use `F1' to access help"
+(global-set-key (kbd "C-h") (lambda () "Use `C-h' to delete the previous character. Use `F1' to access help"
+                              (interactive)
                               (backward-delete-char-untabify 1)))
 (global-set-key (kbd "C-x C-M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x M-h") 'backward-kill-sexp)
