@@ -99,4 +99,6 @@
                                     (just-one-space)
                                     (backward-delete-char-untabify 1))))
 
+(global-set-key (kbd "C-z j") 'java-get/set)
+
 (provide 'init-mappings)
