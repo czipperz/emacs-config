@@ -73,38 +73,45 @@
 (defun java-get/set () "Generate get/set for current java variable.
 **THIS WILL DELETE DECLARATION**"
   (interactive)
-  (back-to-indentation)
-  (kill-word 1)
-  (insert "public")
-  (forward-word) (backward-word)
-  (copy-to-register ?t (point) ;type
-                    (progn (forward-word) (point)))
-  (forward-word) (backward-word)
-  (copy-to-register ?n (point) ;name
-                    (progn (forward-word) (point)))
-  (kill-line) ;remove rest of line
+  (let ((reg-t (get-register ?t)) (reg-n (get-register ?n)))
+    (back-to-indentation)
+    (kill-word 1)
+    (insert "public")
+    (forward-word) (backward-word)
 
-  (backward-word)
-  (insert "get")
-  (capitalize-word 1)
-  (insert "() { return this.")
-  (insert-register ?n 1)
-  (insert "; }")
+    (copy-to-register ?t (point) ;type
+                      (progn (forward-word) (point)))
+    (while (or (equal (get-register ?t) "final")
+               (equal (get-register ?t) "transient")) ;gets past `transient and finals'
+      (forward-word) (backward-word)
+      (copy-to-register ?t (point) ;type
+                        (progn (forward-word) (point))))
 
+    (forward-word) (backward-word) ;resets to beginning of next word
+    (copy-to-register ?n (point) ;name
+                      (progn (forward-word) (point)))
+    (kill-line) ;remove rest of line
 
-  (newline-and-indent)
-  (insert "public void set")
-  (insert-register ?n)
-  (capitalize-word 1)
-  (insert "(")
-  (insert-register ?t 1)
-  (insert " ")
-  (insert-register ?n 1)
-  (insert ") { this.")
-  (insert-register ?n 1)
-  (insert " = ")
-  (insert-register ?n 1)
-  (insert "; }"))
+    (backward-word)
+    (insert "get")
+    (capitalize-word 1)
+    (insert "() { return this.")
+    (insert-register ?n 1)
+    (insert "; }")
+
+    (newline-and-indent)
+    (insert "public void set")
+    (insert-register ?n)
+    (capitalize-word 1)
+    (insert "(")
+    (insert-register ?t 1)
+    (insert " ")
+    (insert-register ?n 1)
+    (insert ") { this.")
+    (insert-register ?n 1)
+    (insert " = ")
+    (insert-register ?n 1)
+    (insert "; }")))
 
 
 (provide 'init-functions)
