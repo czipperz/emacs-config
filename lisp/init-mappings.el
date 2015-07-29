@@ -31,6 +31,7 @@
                               (list-packages)
                               (package-menu-mark-upgrades)
                               (package-menu-execute)
+                              (keyboard-escape-quit)
                               (quit-window)))
 
 ;; (global-set-key (kbd "M-p") 'ace-window)
