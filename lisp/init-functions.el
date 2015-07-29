@@ -217,4 +217,13 @@ REQUIRES line is all the code."
     (backward-delete-char-untabify 1)))
 
 
+(defun interactive-update-packages () "Just type `yes' a few times"
+  (interactive)
+  (list-packages)
+  (package-menu-mark-upgrades)
+  (package-menu-execute)
+  (keyboard-escape-quit)
+  (quit-window))
+
+
 (provide 'init-functions)
