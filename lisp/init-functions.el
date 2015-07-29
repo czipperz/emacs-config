@@ -46,6 +46,11 @@
   (forward-word))
 
 
+(defun my/end-of-visual-line () "Goes to the end of the current line instead of the beginning of the next one"
+  (interactive)
+  (end-of-visual-line) (backward-char))
+
+
 (defun my/beginning-of-buffer () "Goes to the beginning
  of the buffer without moving the mark"
   (interactive)
