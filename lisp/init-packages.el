@@ -1,8 +1,6 @@
-;;; Install packages
-
 (load-theme 'solarized-dark) ; load theme here
 
-(set-default-font "Meslo LG S DZ-12")
+(set-frame-font "Meslo LG S DZ-11")
 
 ;; Magit - Git inside emacs is awesome -> `C-c s' or `M-x magit-status'
 (setq magit-last-seen-setup-instructions "1.4.0") ; Hide message
@@ -22,7 +20,7 @@
 (global-linum-mode)
 ;; Fringe style for graphical mode
 (set-fringe-style 0)
-(setq linum-format "%d ")
+(setq linum-format "%d")
 
 ;; 4 spaces for c languages
 (setq c-basic-offset 4
