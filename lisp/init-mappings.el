@@ -91,16 +91,7 @@
 (global-set-key (kbd "C-x 8 g X")   "Ξ")  ;XI
 (global-set-key (kbd "C-x 8 g z")   "ζ")  ;zeta
 
-(global-set-key (kbd "C-z SPC") (lambda () (interactive)
-                                  (my/end-of-buffer)
-                                  (while (not (equal (point) 1))
-                                    (previous-line)
-                                    (move-beginning-of-line nil)
-                                    (just-one-space)
-                                    (indent-for-tab-command)
-                                    (move-end-of-line nil)
-                                    (just-one-space)
-                                    (backward-delete-char-untabify 1))))
+(global-set-key (kbd "C-z SPC") 'fix-indentation)
 
 (global-unset-key (kbd "C-z j"))
 (global-set-key (kbd "C-z j g") 'java-get/set)

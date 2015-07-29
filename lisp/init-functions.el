@@ -198,4 +198,18 @@ REQUIRES line is all the code."
   (insert ")"))
 
 
+(defun fix-indentation ()
+  (interactive)
+  (my/end-of-buffer)
+  (while (not (equal (point) 1))
+    (move-beginning-of-line 0)
+    (just-one-space)
+    (indent-for-tab-command)
+    (backward-delete-char-untabify 1)
+
+    (move-end-of-line nil)
+    (just-one-space)
+    (backward-delete-char-untabify 1)))
+
+
 (provide 'init-functions)
