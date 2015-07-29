@@ -56,6 +56,8 @@
 (global-set-key (kbd "<tab>") (lambda () "Tab is disabled, use `C-i' instead"
                                 (interactive) (message "Tab is disabled, use `C-i' instead")))
 
+(global-set-key (kbd "M-c") 'my/capitalize-word)
+
 (global-set-key (kbd "C-x 8 g a")   "α")  ;alpha
 (global-set-key (kbd "C-x 8 g b")   "β")  ;beta
 (global-set-key (kbd "C-x 8 g c")   "ς")  ;sigma
@@ -100,6 +102,15 @@
                                     (just-one-space)
                                     (backward-delete-char-untabify 1))))
 
-(global-set-key (kbd "C-z j") 'java-get/set)
+(global-unset-key (kbd "C-z j"))
+(global-set-key (kbd "C-z j g") 'java-get/set)
+(global-set-key (kbd "C-z j v") 'java-line-private)
+(global-set-key (kbd "C-z j m") 'java-function-public)
+(global-set-key (kbd "C-z j ;") 'java-fix-semicolons)
+(global-set-key (kbd "C-z j r") 'java-fix-return)
+(global-set-key (kbd "C-z j w") 'java-single-method-wrap)
+(global-set-key (kbd "C-z j s") 'java-assign-to-set)
+
+(global-set-key (kbd "C-z r") 'align-regexp)
 
 (provide 'init-mappings)

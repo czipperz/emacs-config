@@ -39,6 +39,13 @@
     (uncomment-region (mark) (point))))
 
 
+(defun my/capitalize-word () "Upcase only current letter and don't affect others, then move to end of word"
+  (interactive)
+  (insert (upcase (get-byte)))
+  (delete-char 1)
+  (forward-word))
+
+
 (defun my/beginning-of-buffer () "Goes to the beginning
  of the buffer without moving the mark"
   (interactive)
@@ -73,48 +80,122 @@
 (defun java-get/set () "Generate get/set for current java variable.
 **THIS WILL DELETE DECLARATION**"
   (interactive)
-  (let ((reg-t (get-register ?t)) (reg-n (get-register ?n)))
-    (back-to-indentation)
-    (kill-word 1)
-    (insert "public")
-    (forward-word) (backward-word)
-
-    (copy-to-register ?t (point) ;type
-                      (progn (forward-word) (point)))
-    (while (or (equal (get-register ?t) "final")
-               (equal (get-register ?t) "transient")) ;gets past `transient and finals'
+  (save-excursion
+    (let ((reg-t (get-register ?t)) (reg-n (get-register ?n)))
+      (back-to-indentation)
+      (kill-word 1)
+      (insert "public")
       (forward-word) (backward-word)
+
       (copy-to-register ?t (point) ;type
-                        (progn (forward-word) (point))))
+                        (progn (forward-word) (point)))
+      (while (or (equal (get-register ?t) "final")
+                 (equal (get-register ?t) "static")
+                 (equal (get-register ?t) "transient")) ;gets past `transient and finals'
+        (forward-word) (backward-word)
+        (copy-to-register ?t (point) ;type
+                          (progn (forward-word) (point))))
 
-    (forward-word) (backward-word) ;resets to beginning of next word
-    (copy-to-register ?n (point) ;name
-                      (progn (forward-word) (point)))
-    (kill-line) ;remove rest of line
+      (forward-word) (backward-word) ;resets to beginning of next word
+      (copy-to-register ?n (point) ;name
+                        (progn (forward-word) (point)))
+      (kill-line) ;remove rest of line
 
-    (backward-word)
-    (insert "get")
-    (capitalize-word 1)
-    (insert "() { return this.")
-    (insert-register ?n 1)
-    (insert "; }")
+      (backward-word)
+      (insert "get")
+      (capitalize-word 1)
+      (insert "() { return this.")
+      (insert-register ?n 1)
+      (insert "; }")
 
-    (newline-and-indent)
-    (insert "public void set")
-    (insert-register ?n)
-    (capitalize-word 1)
-    (insert "(")
-    (insert-register ?t 1)
-    (insert " ")
-    (insert-register ?n 1)
-    (insert ") { this.")
-    (insert-register ?n 1)
-    (insert " = ")
-    (insert-register ?n 1)
-    (insert "; }")
+      (newline-and-indent)
+      (insert "public void set")
+      (insert-register ?n)
+      (capitalize-word 1)
+      (insert "(")
+      (insert-register ?t 1)
+      (insert " ")
+      (insert-register ?n 1)
+      (insert ") { this.")
+      (insert-register ?n 1)
+      (insert " = ")
+      (insert-register ?n 1)
+      (insert "; }")
 
-    (set-register ?t reg-t)
-    (set-register ?n reg-n)))
+      (set-register ?t reg-t)
+      (set-register ?n reg-n)))
+  (forward-line 2))
+(defun java-get/set-&-align (times) "Runs `java-get/set' a given number of times, then aligns those calls with `{', `=', then `}'.
+To use interactively use a prefix argument"
+  (interactive "p")
+  (let ((cur (point)))
+    (while (not (eq 0 times))
+      (setq times (1- times))
+      (java-get/set))
+    (align-regexp cur (point) "\\(\\s-*\\){")
+    (align-regexp cur (point) "\\(\\s-*\\)this." 1 1 nil)
+    (align-regexp cur (point) "\\(\\s-*\\)=")
+    (align-regexp cur (point) "\\(\\s-*\\)}")))
+(defun java-line-private () "Declares current line as public then moves to next"
+  (interactive)
+  (back-to-indentation)
+  (insert "private ")
+  (java-fix-semicolons)
+  (back-to-indentation))
+(defun java-function-public () "Declares current function as public then moves to next"
+  (interactive)
+  (back-to-indentation)
+  (insert "public ")
+  (c-end-of-defun)
+  (c-end-of-defun)
+  (c-beginning-of-defun)
+  (back-to-indentation))
+(defun java-fix-semicolons () "If no semicolon at end of line, adds it then moves to next line"
+  (interactive)
+  (move-end-of-line nil)
+  (backward-char)
+  (if (not (eq (get-byte) 59))
+      (progn (forward-char) (insert ";"))
+    nil)
+  (forward-line))
+(defun java-fix-return () "Adds return to beginning of line, then runs `java-fix-semicolons'"
+  (interactive)
+  (back-to-indentation)
+  (insert "return ")
+  (java-fix-semicolons))
+(defun java-single-method-wrap ()
+  "Folds a method onto one line.
+
+Example:
+
+    public String getName() {
+        return this.name;
+    }
+
+Into
+
+    public String getName() { return this.name; }"
+  (interactive)
+  (move-end-of-line nil)
+  (delete-char 1)
+  (just-one-space)
+  (move-end-of-line nil)
+  (delete-char 1)
+  (just-one-space)
+  (forward-line))
+(defun java-assign-to-set ()
+  "Takes an assignment and makes it into a `set' call.
+REQUIRES line is all the code."
+  (interactive)
+  (back-to-indentation)
+  (forward-word) (forward-word) (backward-word)
+  (insert "set")
+  (my/capitalize-word)
+  (delete-region (point) (progn (forward-word) (backward-word) (point)))
+  (insert "(")
+  (end-of-line)
+  (backward-char)
+  (insert ")"))
 
 
 (provide 'init-functions)
