@@ -30,9 +30,7 @@
 (global-set-key (kbd "C-~") 'interactive-update-packages)
 
 (define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "C-h") (lambda () "Use `C-h' to delete the previous character. Use `F1' to access help"
-                              (interactive)
-                              (backward-delete-char-untabify 1)))
+(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-x C-M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x M-h") 'backward-kill-sexp)
 (global-set-key (kbd "C-x C-h") 'help)
