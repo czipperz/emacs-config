@@ -34,8 +34,6 @@
                               (keyboard-escape-quit)
                               (quit-window)))
 
-;; (global-set-key (kbd "M-p") 'ace-window)
-
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "C-h") (lambda () "Use `C-h' to delete the previous character. Use `F1' to access help"
                               (interactive)
