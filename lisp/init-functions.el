@@ -61,16 +61,41 @@
   (goto-char (point-max)))
 
 
-(defun insert-perl-regexp () "Take variable and make it into regexp.
+(defun insert-perl-regexp (sep) "Take variable at point and make it into regexp.
 Place cursor at start of variable (name or `$' works) to use.
 
-Ex: ``$<cur>xs'' -> ``$(echo \"$xs\" | perl -pe 's/<cur>//'''"
-  (interactive)
-  (if (eq (get-byte) 36) (forward-char) nil) ;$
-  (insert "(echo \"$")
-  (forward-word) (while (eq (get-byte) 95) (forward-word) nil) ;_
-  (insert "\" | perl -pe 's///')")
-  (backward-char 4))
+``sep'' is the separator to use.
+
+It will be chosen from ``;/|,.*&^%!@#$)'', default is ``.''
+
+Ex: with `/' as `sep':
+
+    $<cur>xs
+    ``M-x insert-perl-regexp''
+    $(echo \"$xs\" | perl -pe 's/<cur>//')"
+  (interactive "cSeperator:")
+  (let ((s (pcase sep
+             (59 ";")
+             (47 "/")
+             (124 "|")
+             (44 ",")
+             (46 ".")
+             (42 "*")
+             (38 "&")
+             (94 "^")
+             (37 "%")
+             (33 "!")
+             (64 "@")
+             (35 "#")
+             (36 "$")
+             (41 ")")
+             (t "."))))
+    (if (eq (get-byte) 36) (forward-char) nil) ;$
+    (insert "(echo \"$")
+    (forward-word) (while (eq (get-byte) 95) (forward-word) nil) ;_
+    (insert "\" | perl -pe 's")
+    (insert (format "%s%s%s')" s s s))
+    (backward-char 4)))
 
 
 (defun create-tags (dir) "Create `ctags' file for a given directory"
