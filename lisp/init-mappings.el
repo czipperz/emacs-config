@@ -16,7 +16,7 @@
 (global-set-key (kbd "C-z o") 'delete-other-windows)
 (global-set-key (kbd "C-z C-a") 'beginning-of-visual-line)
 (global-set-key (kbd "C-z C-e") 'my/end-of-visual-line)
-(add-hook 'shell-script-mode (global-set-key (kbd "C-z p") 'insert-perl-regexp))
+(add-hook 'sh-mode-hook '(lambda () (local-set-key (kbd "C-z p") 'insert-perl-regexp)))
 
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-S-k") 'kill-line) ; note that this doesn't work in shells because they are dumb
