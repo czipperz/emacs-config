@@ -61,6 +61,18 @@
   (goto-char (point-max)))
 
 
+(defun insert-perl-regexp () "Take variable and make it into regexp.
+Place cursor at start of variable (name or `$' works) to use.
+
+Ex: ``$<cur>xs'' -> ``$(echo \"$xs\" | perl -pe 's/<cur>//'''"
+  (interactive)
+  (if (eq (get-byte) 36) (forward-char) nil) ;$
+  (insert "(echo \"$")
+  (forward-word) (while (eq (get-byte) 95) (forward-word) nil) ;_
+  (insert "\" | perl -pe 's///')")
+  (backward-char 4))
+
+
 (defun create-tags (dir) "Create `ctags' file for a given directory"
   (interactive "DDirectory: ")
   (shell-command (format "ctags -e -R %s" (directory-file-name dir))))
