@@ -88,6 +88,7 @@
 
 (global-unset-key (kbd "C-z j"))
 (global-set-key (kbd "C-z j g") 'java-get/set)
+(global-set-key (kbd "C-z j a") 'java-get/set-&-align)
 (global-set-key (kbd "C-z j v") 'java-line-private)
 (global-set-key (kbd "C-z j m") 'java-function-public)
 (global-set-key (kbd "C-z j ;") 'java-fix-semicolons)
