@@ -123,21 +123,27 @@ Ex: with `/' as `sep':
 **THIS WILL DELETE DECLARATION**"
   (interactive)
   (save-excursion
-    (let ((reg-t (get-register ?t)) (reg-n (get-register ?n)))
+    (let ((reg-t (get-register ?t)) (reg-n (get-register ?n)) (reg-f (get-register ?f)))
+      (set-register ?f nil)
       (back-to-indentation)
       (kill-word 1)
       (insert "public")
       (forward-word) (backward-word)
 
-      (copy-to-register ?t (point) ;type
-                        (progn (forward-word) (point)))
+      (let ((cur (point)))
+        (forward-word)
+        (copy-to-register ?t cur (point))
+        (delete-region cur (point)))
       (while (or (equal (get-register ?t) "final")
                  (equal (get-register ?t) "static")
                  (equal (get-register ?t) "transient")) ;gets past `transient' and `final's
-        (forward-word) (backward-word)
-        (copy-to-register ?t (point) ;type
-                          (progn (forward-word) (point))))
-
+        (delete-region (point) (progn (forward-word) (backward-word) (point)))
+        (let ((cur (point)))
+          (forward-word)
+          (copy-to-register ?t cur (point))
+          (delete-region cur (point)))
+        (if (equal (get-register ?t) "final") (set-register ?f " ") nil))
+      (insert (get-register ?t))
       (forward-word) (backward-word) ;resets to beginning of next word
       (copy-to-register ?n (point) ;name
                         (progn (forward-word) (point)))
@@ -150,22 +156,24 @@ Ex: with `/' as `sep':
       (insert-register ?n 1)
       (insert "; }")
 
-      (newline-and-indent)
-      (insert "public void set")
-      (insert-register ?n)
-      (capitalize-word 1)
-      (insert "(")
-      (insert-register ?t 1)
-      (insert " ")
-      (insert-register ?n 1)
-      (insert ") { this.")
-      (insert-register ?n 1)
-      (insert " = ")
-      (insert-register ?n 1)
-      (insert "; }")
+      (if (null (get-register ?f)) nil (prog1
+                                         (newline-and-indent)
+                                         (insert "public void set")
+                                         (insert-register ?n)
+                                         (capitalize-word 1)
+                                         (insert "(")
+                                         (insert-register ?t 1)
+                                         (insert " ")
+                                         (insert-register ?n 1)
+                                         (insert ") { this.")
+                                         (insert-register ?n 1)
+                                         (insert " = ")
+                                         (insert-register ?n 1)
+                                         (insert "; }")))
 
       (set-register ?t reg-t)
-      (set-register ?n reg-n)))
+      (set-register ?n reg-n)
+      (set-register ?f reg-f)))
   (forward-line 2))
 (defun java-get/set-&-align (times) "Runs `java-get/set' a given number of times, then aligns those calls with `{', `=', then `}'.
 To use interactively use a prefix argument"
