@@ -133,7 +133,7 @@ Ex: with `/' as `sep':
                         (progn (forward-word) (point)))
       (while (or (equal (get-register ?t) "final")
                  (equal (get-register ?t) "static")
-                 (equal (get-register ?t) "transient")) ;gets past `transient and finals'
+                 (equal (get-register ?t) "transient")) ;gets past `transient' and `final's
         (forward-word) (backward-word)
         (copy-to-register ?t (point) ;type
                           (progn (forward-word) (point))))
