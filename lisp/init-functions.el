@@ -189,10 +189,10 @@ To use interactively use a prefix argument"
     (while (not (eq 0 times))
       (setq times (1- times))
       (java-get/set))
-    (align-regexp cur (point) "\\(\\s-*\\){")
+    (align-regexp cur (point) "\\(\\s-*\\){"     1 1 nil)
     (align-regexp cur (point) "\\(\\s-*\\)this." 1 1 nil)
-    (align-regexp cur (point) "\\(\\s-*\\)=")
-    (align-regexp cur (point) "\\(\\s-*\\)}")))
+    (align-regexp cur (point) "\\(\\s-*\\)="     1 1 nil)
+    (align-regexp cur (point) "\\(\\s-*\\)}"     1 1 nil)))
 (defun java-line-private () "Declares current line as public then moves to next"
   (interactive)
   (back-to-indentation)
