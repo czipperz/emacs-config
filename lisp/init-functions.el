@@ -119,6 +119,7 @@ Ex: with `/' as `sep':
              ad-do-it))))
 
 
+
 (defun java-get/set () "Generate get/set for current java variable.
 **THIS WILL DELETE DECLARATION**"
   (interactive)
@@ -182,6 +183,7 @@ Ex: with `/' as `sep':
       (set-register ?n reg-n)
       (set-register ?f reg-f)))
   (forward-line))
+
 (defun java-get/set-&-align (times) "Runs `java-get/set' a given number of times, then aligns those calls with `{', `=', then `}'.
 To use interactively use a prefix argument"
   (interactive "p")
@@ -193,12 +195,14 @@ To use interactively use a prefix argument"
     (align-regexp cur (point) "\\(\\s-*\\)this." 1 1 nil)
     (align-regexp cur (point) "\\(\\s-*\\)="     1 1 nil)
     (align-regexp cur (point) "\\(\\s-*\\)}"     1 1 nil)))
+
 (defun java-line-private () "Declares current line as public then moves to next"
   (interactive)
   (back-to-indentation)
   (insert "private ")
   (java-fix-semicolons)
   (back-to-indentation))
+
 (defun java-function-public () "Declares current function as public then moves to next"
   (interactive)
   (back-to-indentation)
@@ -207,6 +211,7 @@ To use interactively use a prefix argument"
   (c-end-of-defun)
   (c-beginning-of-defun)
   (back-to-indentation))
+
 (defun java-fix-semicolons () "If no semicolon at end of line, adds it then moves to next line"
   (interactive)
   (move-end-of-line nil)
@@ -215,11 +220,13 @@ To use interactively use a prefix argument"
       (progn (forward-char) (insert ";"))
     nil)
   (forward-line))
+
 (defun java-fix-return () "Adds return to beginning of line, then runs `java-fix-semicolons'"
   (interactive)
   (back-to-indentation)
   (insert "return ")
   (java-fix-semicolons))
+
 (defun java-single-method-wrap ()
   "Folds a method onto one line.
 
@@ -240,6 +247,7 @@ Into
   (delete-char 1)
   (just-one-space)
   (forward-line))
+
 (defun java-assign-to-set ()
   "Takes an assignment and makes it into a `set' call.
 REQUIRES line is all the code."
@@ -255,6 +263,7 @@ REQUIRES line is all the code."
   (if (eq (get-byte) 59) nil (forward-char))
   (insert ")")
   (java-fix-semicolons))
+
 (defun groovy-with-to-set ()
   (interactive)
   (end-of-line)
@@ -276,6 +285,7 @@ REQUIRES line is all the code."
     (backward-char 2)
     (delete-char 1)
     (insert ");")))
+
 (defun groovy-each-to-for ()
   (interactive)
   (back-to-indentation)
@@ -286,6 +296,7 @@ REQUIRES line is all the code."
     (delete-region (point) (progn (forward-word) (point)))
     (insert ")")
     (goto-char cur)))
+
 (defun groovy-space-to-parens ()
   (interactive)
   (end-of-line)
@@ -300,20 +311,7 @@ REQUIRES line is all the code."
   (if (eq (get-byte) 59) nil (forward-char))
   (insert ")")
   (java-fix-semicolons))
-(defun backward-whitespace ()
-  (interactive)
-  (while (or (eq (get-byte) 10)
-             (eq (get-byte) 32)
-             (eq (get-byte) 9))
-    (backward-char))
-  (while (not (or (eq (get-byte) 10)
-                  (eq (get-byte) 32)
-                  (eq (get-byte) 9)))
-    (backward-char))
-  (while (or (eq (get-byte) 10)
-             (eq (get-byte) 32)
-             (eq (get-byte) 9))
-    (backward-char)))
+
 (defun c-prog-sep-semicolon (num)
   (interactive "p")
   (cond ((eq num 0))
@@ -323,6 +321,8 @@ REQUIRES line is all the code."
             (forward-char)
             (newline-and-indent)
             (c-prog-sep-semicolon (1- num)))))
+
+
 
 (defun fix-indentation ()
   (interactive)
@@ -345,6 +345,22 @@ REQUIRES line is all the code."
   (package-menu-execute)
   (keyboard-escape-quit)
   (quit-window))
+
+
+(defun backward-whitespace ()
+  (interactive)
+  (while (or (eq (get-byte) 10)
+             (eq (get-byte) 32)
+             (eq (get-byte) 9))
+    (backward-char))
+  (while (not (or (eq (get-byte) 10)
+                  (eq (get-byte) 32)
+                  (eq (get-byte) 9)))
+    (backward-char))
+  (while (or (eq (get-byte) 10)
+             (eq (get-byte) 32)
+             (eq (get-byte) 9))
+    (backward-char)))
 
 
 (provide 'init-functions)
