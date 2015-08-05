@@ -53,3 +53,4 @@
 
 ;; Init scripts
 (require 'init-packages)
+(put 'narrow-to-region 'disabled nil)
