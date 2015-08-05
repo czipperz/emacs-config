@@ -98,4 +98,6 @@
 
 (global-set-key (kbd "C-z r") 'align-regexp)
 
+(add-hook 'diff-mode-hook '(lambda () (local-set-key (kbd "q") (lambda () (interactive) (delete-window)))))
+
 (provide 'init-mappings)
