@@ -95,6 +95,10 @@
 (global-set-key (kbd "C-z j r") 'java-fix-return)
 (global-set-key (kbd "C-z j w") 'java-single-method-wrap)
 (global-set-key (kbd "C-z j s") 'java-assign-to-set)
+(global-set-key (kbd "C-z j C-s") 'groovy-with-to-set)
+(global-set-key (kbd "C-z j e") 'groovy-each-to-for)
+(global-set-key (kbd "C-z j (") 'groovy-space-to-parens)
+(global-set-key (kbd "C-z j n") 'c-prog-sep-semicolon)
 
 (global-set-key (kbd "C-z r") 'align-regexp)
 
