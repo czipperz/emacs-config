@@ -182,7 +182,7 @@ Ex: with `/' as `sep':
       (set-register ?t reg-t)
       (set-register ?n reg-n)
       (set-register ?f reg-f)))
-  (forward-line))
+  (forward-line 2))
 
 (defun java-get/set-&-align (times) "Runs `java-get/set' a given number of times, then aligns those calls with `{', `=', then `}'.
 To use interactively use a prefix argument"
