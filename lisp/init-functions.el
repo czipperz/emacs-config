@@ -331,6 +331,21 @@ REQUIRES line is all the code."
   (insert ")")
   (java-fix-semicolons))
 
+(defun get-yank () "Returns what `yank' would output"
+   (save-excursion (let ((reg (get-register ?r)) (cur (point)))
+                     (yank)
+                     (copy-to-register ?r (mark) (point))
+                     (prog1 (get-register ?r)
+                       (delete-region (mark) (point))
+                       (set-register ?r reg)))))
+
+(defun get-region (mark point) "Returns what `kill-ring-saved' would output"
+   (interactive (list (mark) (point)))
+   (save-excursion (let ((reg (get-register ?r)))
+                     (copy-to-register ?r mark point)
+                     (prog1 (get-register ?r)
+                       (set-register ?r reg)))))
+
 (defun c-prog-sep-semicolon (num)
   (interactive "p")
   (cond ((eq num 0))
