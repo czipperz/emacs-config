@@ -321,7 +321,7 @@ REQUIRES line is all the code."
   (end-of-line)
   (backward-char)
   (if (eq (get-byte) 59) nil (forward-char))
-  (backward-whitespace)
+  (backward-sexp)
   (forward-char)
   (delete-char 1)
   (insert "(")
