@@ -99,6 +99,7 @@
 (global-set-key (kbd "C-z j e") 'groovy-each-to-for)
 (global-set-key (kbd "C-z j (") 'groovy-space-to-parens)
 (global-set-key (kbd "C-z j n") 'c-prog-sep-semicolon)
+(global-set-key (kbd "C-z j C-g") (lambda () (interactive) (insert "get") (my/capitalize-word) (insert "()")))
 
 (global-set-key (kbd "C-z r") 'align-regexp)
 
