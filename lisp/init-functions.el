@@ -43,6 +43,7 @@
   (interactive)
   (insert (upcase (get-byte)))
   (delete-char 1)
+  (backward-char)
   (forward-word))
 
 
