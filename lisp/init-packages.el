@@ -53,4 +53,7 @@
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
+(projectile-global-mode)
+(setq projectile-keymap-prefix (kbd "C-c p"))
+
 (provide 'init-packages)
