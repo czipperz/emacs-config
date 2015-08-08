@@ -34,13 +34,13 @@
 ;; (yas-global-mode 1)
 
 ;; Rainbow delimeters
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Highlight current line
 (highlight-current-line-on t)
 
 ;; Highlight quoted
-(add-hook 'lisp-mode-hook 'highlight-quoted-mode)
+(add-hook 'lisp-mode-hook       'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
 ;; Chrome edit server
@@ -51,6 +51,6 @@
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'after-init-hook 'global-flycheck-mode)
 
 (provide 'init-packages)
