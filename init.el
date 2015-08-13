@@ -45,6 +45,7 @@
              haskell-mode
              hi2                        ;haskell indent
              tuareg                     ;Ocaml
+             java-file-create
              helm-config                ;completion for menus
              auto-complete              ;completion for text
              smartparens-config         ;matching grouping symbols highlighted with cursor
