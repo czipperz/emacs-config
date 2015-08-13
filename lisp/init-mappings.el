@@ -2,6 +2,7 @@
 (global-set-key (kbd "C-.") 'vim-style-capital-o) ; note that this doesn't work in shells because they are dumb
 
 (global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
+(global-set-key (kbd "C-x b")   'helm-buffers-list)
 
 (global-unset-key (kbd "C-z"))		;This would sleep emacs so unbound it
 (global-unset-key (kbd "C-x C-z"))
