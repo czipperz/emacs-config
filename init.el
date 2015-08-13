@@ -57,8 +57,7 @@
              ;; scroll-bar-mode         ;remove scrollbar
              ace-window
              highlight-quoted
-             highlight-current-line
-             )) (require i))
+             highlight-current-line)) (require i))
 
 ;; Init scripts
 (require 'init-packages)
