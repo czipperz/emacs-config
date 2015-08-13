@@ -399,4 +399,18 @@ REQUIRES line is all the code."
     (backward-char)))
 
 
+(defun insert-curly-brackets (&optional arg)
+  (interactive "P")
+  (insert-pair arg ?{  ?}))
+(defun insert-single-quotes (&optional arg)
+  (interactive "P")
+  (insert-pair arg ?\' ?\'))
+(defun insert-double-quotes (&optional arg)
+  (interactive "P")
+  (insert-pair arg ?\" ?\"))
+(defun insert-square-brackets (&optional arg)
+  (interactive "P")
+  (insert-pair arg ?\[ ?\]))
+
+
 (provide 'init-functions)

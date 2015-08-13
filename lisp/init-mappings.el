@@ -111,6 +111,13 @@
 
 (global-set-key (kbd "C-$") 'ispell-buffer)
 
+(global-set-key (kbd "M-'")  'insert-single-quotes)
+(global-set-key (kbd "M-\"") 'insert-double-quotes)
+(global-set-key (kbd "C-{")  'backward-paragraph)
+(global-set-key (kbd "C-}")  'forward-paragraph)
+(global-set-key (kbd "M-{")  'insert-curly-brackets)
+(global-set-key (kbd "M-[")  'insert-square-brackets)
+
 (global-set-key (kbd "C-z C-o") 'ace-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
 
