@@ -1,5 +1,3 @@
-(load-theme 'solarized-dark) ; load theme here
-
 (set-frame-font "Meslo LG S DZ-11")
 
 ;; Magit - Git inside emacs is awesome -> `C-c s' or `M-x magit-status'
