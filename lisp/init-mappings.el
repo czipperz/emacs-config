@@ -17,6 +17,7 @@
 (global-set-key (kbd "C-z v") 'split-window-right)
 (global-set-key (kbd "C-z h") 'split-window-below)
 (global-set-key (kbd "C-z o") 'delete-other-windows)
+(global-set-key (kbd "C-z C-f") 'ido-find-file)
 (global-set-key (kbd "C-z C-a") 'beginning-of-visual-line)
 (global-set-key (kbd "C-z C-e") 'my/end-of-visual-line)
 (add-hook 'sh-mode-hook '(lambda () (local-set-key (kbd "C-z p") 'insert-perl-regexp)))
