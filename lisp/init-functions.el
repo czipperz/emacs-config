@@ -40,11 +40,12 @@
 
 
 (defun my/capitalize-word () "Upcase only current letter and don't affect others, then move to end of word"
-  (interactive)
-  (insert (upcase (get-byte)))
-  (delete-char 1)
-  (backward-char)
-  (forward-word))
+   (interactive)
+   (if (eq (get-byte) ? ) (forward-whitespace 1))
+   (insert (upcase (get-byte)))
+   (delete-char 1)
+   (backward-char)
+   (forward-word))
 
 
 (defun my/end-of-visual-line () "Goes to the end of the current line instead of the beginning of the next one"
