@@ -25,6 +25,9 @@
       c-default-style "java")
 (push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
 
+;; cwarn to check for errors
+(add-hook 'c-mode-hook 'cwarn-mode)
+
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
