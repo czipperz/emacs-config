@@ -27,6 +27,7 @@
              auto-complete              ;completion for text
              smartparens-config         ;matching grouping symbols highlighted with cursor
              dired-details
+             yaml-mode                  ;https://github.com/yoshiki/yaml-mode
              ;; yasnippet
              rainbow-delimiters         ;matching grouping symbols colored specially based on level
              edit-server                ;chrome edit server
