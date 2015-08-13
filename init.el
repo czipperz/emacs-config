@@ -42,6 +42,7 @@
              init-mode-font
              ;; Other requires
              magit                      ;Git
+             haskell-mode
              hi2                        ;haskell indent
              tuareg                     ;Ocaml
              helm-config                ;completion for menus
