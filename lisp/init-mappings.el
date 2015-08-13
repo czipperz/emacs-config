@@ -107,4 +107,7 @@
 
 (global-set-key (kbd "C-$") 'ispell-buffer)
 
+(global-set-key (kbd "C-z C-o") 'ace-window)
+(setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
+
 (provide 'init-mappings)
