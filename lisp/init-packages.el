@@ -44,6 +44,8 @@
 (add-hook 'lisp-mode-hook       'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+
 ;; Chrome edit server
 (when (daemonp)
   (edit-server-start)
