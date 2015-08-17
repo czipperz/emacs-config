@@ -379,7 +379,7 @@ REQUIRES line is all the code."
   (interactive)
   (list-packages)
   (package-menu-mark-upgrades)
-  (package-menu-execute)
+  (package-menu-execute 10)
   (keyboard-escape-quit)
   (quit-window))
 
