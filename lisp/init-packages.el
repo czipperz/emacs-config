@@ -64,6 +64,7 @@
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
 (add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'toggle-word-wrap)
 
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
