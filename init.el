@@ -35,7 +35,6 @@
 (tool-bar-mode -1)
 
 (dolist (i '(;; darcula-theme		;Minimize white time
-             init-markdown
              init-powerline
              init-mappings
              init-functions
