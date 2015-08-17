@@ -121,4 +121,7 @@
 (global-set-key (kbd "C-z C-o") 'ace-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
 
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-+") 'er/contract-region)
+
 (provide 'init-mappings)

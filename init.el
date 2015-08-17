@@ -41,6 +41,7 @@
              init-functions
              init-mode-font
              ;; Other requires
+             expand-region
              magit                      ;Git
              haskell-mode
              hi2                        ;haskell indent
