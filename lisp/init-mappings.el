@@ -124,4 +124,9 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-+") 'er/contract-region)
 
+(global-set-key (kbd "C-t")   'my/transpose-chars)
+(global-set-key (kbd "M-t")   'my/transpose-words)
+(global-set-key (kbd "C-M-t") 'my/transpose-sexps)
+
+
 (provide 'init-mappings)
