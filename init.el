@@ -39,6 +39,7 @@
              init-mappings
              init-functions
              init-mode-font
+             init-shell-highlighting
              ;; Other requires
              expand-region
              magit                      ;Git
