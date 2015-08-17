@@ -63,8 +63,11 @@
 (add-hook 'lisp-mode-hook       'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
+(add-hook 'text-mode-hook 'flyspell-mode)
+
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; Markdown config
-(add-hook 'markdown-mode-hook 'flyspell-mode)
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
