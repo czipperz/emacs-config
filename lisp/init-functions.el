@@ -445,4 +445,21 @@ REQUIRES line is all the code."
                   arg 'special))
 
 
+(defun forward-find (char)
+  "Goes forward until ``(eq (get-byte) char)''
+Will move point forward one character before testing.
+Interactively will prompt for ``char''"
+  (interactive "c")
+  (forward-char)
+  (while (not (eq (get-byte) char))
+         (forward-char)))
+(defun backward-find (char)
+  "Goes backward until ``(eq (get-byte) char)''
+Will move point back one character before testing.
+Interactively will prompt for ``char''"
+  (interactive "c")
+  (backward-char)
+  (while (not (eq (get-byte) char))
+         (backward-char)))
+
 (provide 'init-functions)

@@ -128,5 +128,7 @@
 (global-set-key (kbd "M-t")   'my/transpose-words)
 (global-set-key (kbd "C-M-t") 'my/transpose-sexps)
 
+(global-set-key (kbd "C-z f") 'forward-find)
+(global-set-key (kbd "C-z b") 'backward-find)
 
 (provide 'init-mappings)
