@@ -334,6 +334,74 @@ REQUIRES line is all the code."
   (insert ")")
   (java-fix-semicolons))
 
+(defun groovy-immutable-class-to-java () "Assumes you just `kill-ring-saved' the class name.
+Variables must NOT have visibility or finality declarations.
+Variables must NOT use `,' to deliniate multiple of the same type.
+Variables must be in a row.
+Variables need to END IN A SEMICOLON.
+Cursor should be at start of the last line of variables, mark at the start of the beginning.
+
+valid:
+   <M>String name;
+   int age;
+   <P>String[] params;"
+   (interactive)
+   (let ((register-c (get-register ?c))
+         (className  (get-yank))
+         (orig-point (point))
+         (orig-mark  (mark)))
+     (end-of-line)
+     (newline)
+     (copy-to-register ?c (mark) (point))
+     (newline)
+     (save-excursion (string-rectangle (mark) orig-point "public final "))
+     (insert (format "public %s(" className))
+     (insert-register ?c)
+     (indent-region (point) (mark))
+
+     (while (not (eq (point) (mark)))   ; ; to , (parameters)
+       (end-of-line)
+       (backward-char)
+       (delete-char 1)
+       (insert ",")
+       (forward-line))
+
+     (backward-char 2)
+     (delete-char 1)
+     (insert ") {")
+     (newline)
+     (indent-for-tab-command)
+     (insert-register ?c)
+
+     (while (not (eq (point) (mark)))
+       (let ((before (point)))
+         (back-to-indentation)
+         (forward-whitespace 1)
+         (delete-region before (point))
+         (insert "this.")
+         (let ((cur (point)))
+           (end-of-line)
+           (backward-char)
+           (let ((reg (get-region cur (point))))
+             (insert " = ")
+             (insert reg)))
+         (forward-line)))
+
+     (let ((before (point)))
+       (exchange-point-and-mark)
+       (backward-char)
+       (delete-char 1)
+       (forward-line)
+       (insert "}")
+       (indent-for-tab-command)
+       (move-beginning-of-line nil))
+
+     (end-of-line)
+     (newline 2)
+     ()
+
+     (set-register ?c register-c)))
+
 (defun get-yank () "Returns what `yank' would output"
    (save-excursion (let ((reg (get-register ?r)) (cur (point)))
                      (yank)
