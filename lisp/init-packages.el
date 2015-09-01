@@ -67,8 +67,6 @@
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'toggle-word-wrap)
 
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-
 ;; Markdown config
 (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
