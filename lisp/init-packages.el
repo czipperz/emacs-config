@@ -24,7 +24,7 @@
 (setq c-basic-offset 4
       c-default-style "java")
 (push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-gcc-language-standard "c++11")))
+(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
 ;; cwarn to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
