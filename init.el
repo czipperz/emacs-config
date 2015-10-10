@@ -38,6 +38,7 @@
 (tool-bar-mode -1)
 
 (dolist (i '(;; darcula-theme		;Minimize white time
+             init-evil
              init-powerline
              init-mappings
              init-functions
