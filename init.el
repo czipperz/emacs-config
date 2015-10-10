@@ -54,11 +54,14 @@
              java-file-create
              helm-config                ;completion for menus
              auto-complete              ;completion for text
-             smartparens-config         ;matching grouping symbols highlighted with cursor
+             smartparens-config         ;matching grouping symbols
+                                        ;highlighted with cursor
              dired-details
              yaml-mode                  ;https://github.com/yoshiki/yaml-mode
              ;; yasnippet
-             rainbow-delimiters         ;matching grouping symbols colored specially based on level
+             rainbow-delimiters         ;matching grouping symbols
+                                        ;colored specially based on
+                                        ;level
              edit-server                ;chrome edit server
              ;; scroll-bar-mode         ;remove scrollbar
              ace-window
