@@ -85,4 +85,6 @@
 (projectile-global-mode)
 (setq projectile-keymap-prefix (kbd "C-c p"))
 
+(global-ede-mode)
+
 (provide 'init-packages)
