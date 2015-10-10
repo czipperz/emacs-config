@@ -7,9 +7,10 @@
 ;; Auto Complete menus
 (helm-mode 1)
 (helm-autoresize-mode 1)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; Auto Complete for text
-(ac-config-default)
+;(ac-config-default)
 
 ;; Auto match parens (highlight)
 (show-smartparens-global-mode)
