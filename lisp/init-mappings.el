@@ -1,5 +1,3 @@
-(global-set-key (kbd "C-,") 'vim-style-o) ; note that this doesn't work in shells because they are dumb
-(global-set-key (kbd "C-.") 'vim-style-capital-o) ; note that this doesn't work in shells because they are dumb
 
 (global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
 (global-set-key (kbd "C-x b")   'helm-buffers-list)
