@@ -1,5 +1,3 @@
-(require 'evil)
-
 (evil-mode)
 
 (define-key evil-normal-state-map "j" 'evil-backward-char)

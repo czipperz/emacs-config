@@ -1,4 +1,3 @@
-(require 'powerline)
 (setq powerline-default-separator (if (display-graphic-p) 'arrow nil))
 
 (defface my-pl-mode-line-active

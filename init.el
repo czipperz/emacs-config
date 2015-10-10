@@ -37,7 +37,9 @@
 (tool-bar-mode -1)
 
 (dolist (i '(;; darcula-theme		;Minimize white time
+             evil
              init-evil
+             powerline
              init-powerline
              init-mappings
              init-functions
@@ -61,10 +63,10 @@
              ;; scroll-bar-mode         ;remove scrollbar
              ace-window
              highlight-quoted
-             highlight-current-line)) (require i))
+             highlight-current-line
 
-;; Init scripts
-(require 'init-packages)
+             init-packages              ;init scripts
+             )) (require i))
 
 (put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
