@@ -54,6 +54,7 @@
                                         ;highlighted with cursor
              dired-details
              yaml-mode                  ;https://github.com/yoshiki/yaml-mode
+             clang-format               ;clang format
              ;; yasnippet
              rainbow-delimiters         ;matching grouping symbols
                                         ;colored specially based on
