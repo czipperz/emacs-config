@@ -28,7 +28,6 @@
 (require 'package)
 (push '("marmalade" . "http://marmalade-repo.org/packages/") package-archives)
 (push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
-(push '("gnu-elpa" . "http://elpa.gnu.org/packages/") package-archives)
 (package-initialize)
 
 (load-theme 'solarized-dark) ; load theme here
