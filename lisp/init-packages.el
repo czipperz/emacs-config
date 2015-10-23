@@ -23,9 +23,9 @@
 
 ;; 4 spaces for c languages
 (setq c-basic-offset 4
-      c-default-style "java")
-(push '("\\.h\\'" . c++-mode) auto-mode-alist) ;header files as c++ headers
+      c-default-style "stroustrup")
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+(c-set-offset 'case-label '+)
 
 ;; cwarn to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
