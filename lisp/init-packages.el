@@ -30,6 +30,9 @@
 ;; cwarn to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
 
+;; Preprocessor highlighting
+(add-hook 'c++-mode-hook 'preproc-font-lock-mode)
+
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 

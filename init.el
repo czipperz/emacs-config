@@ -60,6 +60,7 @@
              rainbow-delimiters         ;matching grouping symbols
                                         ;colored specially based on
                                         ;level
+             preproc-font-lock
              edit-server                ;chrome edit server
              ;; scroll-bar-mode         ;remove scrollbar
              ace-window
