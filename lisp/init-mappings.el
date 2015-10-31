@@ -15,6 +15,7 @@
 (global-set-key (kbd (concat my-prefix " C-f")) 'ido-find-file)
 (global-set-key (kbd (concat my-prefix " C-a")) 'beginning-of-visual-line)
 (global-set-key (kbd (concat my-prefix " C-e")) 'my/end-of-visual-line)
+(global-set-key (kbd (concat my-prefix " C-m")) 'compile)
 (global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 
