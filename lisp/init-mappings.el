@@ -15,8 +15,7 @@
 (global-set-key (kbd (concat my-prefix " C-f")) 'ido-find-file)
 (global-set-key (kbd (concat my-prefix " C-a")) 'beginning-of-visual-line)
 (global-set-key (kbd (concat my-prefix " C-e")) 'my/end-of-visual-line)
-(add-hook 'sh-mode-hook '(lambda () (local-set-key (kbd (concat my-prefix " p")) 'insert-perl-regexp)))
-
+(global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 
 (global-unset-key (kbd (concat my-prefix " j")))
@@ -34,14 +33,13 @@
 (global-set-key (kbd (concat my-prefix " j n")) 'c-prog-sep-semicolon)
 (global-set-key (kbd (concat my-prefix " j C-g")) (lambda () (interactive) (insert "get") (my/capitalize-word) (insert "()")))
 
-(global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
-
 ;; (global-set-key (kbd (concat my-prefix " f")) 'forward-find)
 ;; (global-set-key (kbd (concat my-prefix " b")) 'backward-find)
 
 (global-set-key (kbd (concat my-prefix " C-o")) 'ace-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
 
+(add-hook 'sh-mode-hook '(lambda () (local-set-key (kbd (concat my-prefix " p")) 'insert-perl-regexp)))
 
 
 
