@@ -4,7 +4,7 @@
     (while
         (and (setq res (progn (if (eq (get-byte) ?$) (backward-char))
                               (re-search-forward
-                               "[^\\\\]\\$\\({#?\\)?\\([[:alpha:]_][[:alnum:]_]*\\|[-#?@!]\\|[[:digit:]]+\\)"
+                               "[^\\\\]\\$\\({#?\\)?\\([[:alpha:]_][[:alnum:]_]*\\|[-#?@!$*]\\|[[:digit:]]+\\)"
                                limit t)))
              (not (eq (nth 3 (syntax-ppss)) ?\")))) res))
 

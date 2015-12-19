@@ -60,7 +60,8 @@
 
 (global-unset-key (kbd "C-x C-z")) ;This would sleep emacs so unbound it
 
-(global-set-key [C-M-tab] 'clang-format-region)
+(add-hook 'c++-mode-hook '(lambda () (local-set-key [C-M-tab] 'clang-format)))
+(add-hook 'emacs-lisp-mode-hook '(lambda () (local-set-key [C-M-tab] 'elisp-format-region)))
 
 (add-hook 'diff-mode-hook '(lambda () (local-set-key (kbd "q") (lambda () (interactive) (delete-window)))))
 

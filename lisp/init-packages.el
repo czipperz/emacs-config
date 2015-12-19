@@ -26,12 +26,20 @@
       c-default-style "stroustrup")
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 (c-set-offset 'case-label '+)
-
+(c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
-
 ;; Preprocessor highlighting
 (add-hook 'c++-mode-hook 'preproc-font-lock-mode)
+
+(autoload 'forth-mode "gforth.el")
+(setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))
+(autoload 'forth-block-mode "gforth.el")
+(setq auto-mode-alist (cons '("\\.fb\\'" . forth-block-mode) auto-mode-alist))
+(add-hook 'forth-mode-hook (function (lambda () (setq forth-indent-level 4))))
+
+;; elisp-format
+(set 'elisp-format-column 80)
 
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)

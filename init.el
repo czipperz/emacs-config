@@ -54,13 +54,21 @@
                                         ;highlighted with cursor
              dired-details
              yaml-mode                  ;https://github.com/yoshiki/yaml-mode
-             ede                        ;project manager
-             clang-format               ;clang format
+             clang-format               ;formats c/c++ code
+             elisp-format               ;http://www.emacswiki.org/emacs/download/elisp-format.el
              ;; yasnippet
              rainbow-delimiters         ;matching grouping symbols
                                         ;colored specially based on
                                         ;level
-             preproc-font-lock
+
+             preproc-font-lock          ;highlights all preprocessor lines (and continuations!)
+             malinka                    ;links rtags, flycheck, projectile, and irony together
+             projectile                 ;project manager
+             flycheck                   ;syntax checker
+             irony                      ;c/c++ completions
+
+             forth-mode                 ;gforth
+
              edit-server                ;chrome edit server
              ;; scroll-bar-mode         ;remove scrollbar
              ace-window
