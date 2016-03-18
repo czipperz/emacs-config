@@ -28,6 +28,17 @@
 (setq c-basic-offset 4
       c-default-style "stroustrup")
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-match "\\.hh\\'" buffer-file-name)
+                                           (equal (buffer-size) 0))
+                                  (let ((buf (file-name-nondirectory buffer-file-name)))
+                                    (let ((i (concat (substring (upcase buf) 0
+                                                                (- (length buf) 3))
+                                                     "_H")))
+                                      (insert (concat "#ifndef HEADER_GUARD_" i
+                                                      "\n#define HEADER_GUARD_" i
+                                                      "\n\n\n\n#endif\n"))
+                                      (forward-line -3))))))
 (c-set-offset 'case-label '+)
 (c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
