@@ -1,3 +1,9 @@
+(defun my-forward-list (&optional ARG) "Fixes my-forward-list for evil mode"
+   (interactive "^p")
+   (forward-list ARG)
+   (if (eolp) (forward-char)))
+
+
 (defun diff-buffer-with-current-file () "Shows differences in the current buffer since the last save"
   (interactive)
   (diff-buffer-with-file))

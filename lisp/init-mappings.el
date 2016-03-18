@@ -55,6 +55,8 @@
 
 
 
+(global-set-key (kbd "C-M-n") 'my-forward-list)
+
 (global-set-key (kbd "C-q") 'string-inflection-all-cycle)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
