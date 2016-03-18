@@ -4,6 +4,13 @@
    (if (eolp) (forward-char)))
 
 
+;;;###autoload
+(defun cargo-process-fmt ()
+  "Run the Cargo format command."
+  (interactive)
+  (cargo-process--start "Format" "cargo fmt"))
+
+
 (defun diff-buffer-with-current-file () "Shows differences in the current buffer since the last save"
   (interactive)
   (diff-buffer-with-file))

@@ -44,6 +44,14 @@
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
+;; Rust
+(add-hook 'rust-mode-hook
+          '(lambda (racer-mode 1)
+             (eldoc-mode 1)
+             (company-mode 1)
+             (local-set-key (kbd "C-,") 'racer-find-definition)))
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+
 ;; Yasnippet
 ;; (yas-global-mode 1)
 

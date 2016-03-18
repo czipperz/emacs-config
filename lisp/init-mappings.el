@@ -66,6 +66,7 @@
 
 (add-hook 'c++-mode-hook '(lambda () (local-set-key [C-M-tab] 'clang-format)))
 (add-hook 'emacs-lisp-mode-hook '(lambda () (local-set-key [C-M-tab] 'elisp-format-region)))
+(add-hook 'cargo-minor-mode-hook '(lambda () (local-set-key [C-M-tab] 'cargo-process-fmt)))
 
 (add-hook 'diff-mode-hook '(lambda () (local-set-key (kbd "q") (lambda () (interactive) (delete-window)))))
 
