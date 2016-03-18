@@ -75,6 +75,9 @@
              highlight-quoted
              highlight-current-line
 
+             string-inflection          ;allows for changes between camel case and snake
+                                        ;and different types of both
+
              init-packages              ;init scripts
              )) (require i))
 
