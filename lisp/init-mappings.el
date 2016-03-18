@@ -3,6 +3,7 @@
 (global-unset-key (kbd my-prefix))
 (global-set-key (kbd (concat my-prefix " d")) 'diff-buffer-with-current-file)
 (global-set-key (kbd (concat my-prefix " s")) 'magit-status)
+(global-set-key (kbd (concat my-prefix " S")) 'sort-lines)
 (global-set-key (kbd (concat my-prefix " t")) 'term)
 (global-set-key (kbd (concat my-prefix " c")) 'comment-line)
 (global-set-key (kbd (concat my-prefix " u")) 'uncomment-line)
