@@ -8,6 +8,9 @@
 (helm-mode 1)
 (helm-autoresize-mode 1)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0.2)
+(setq company-minimum-prefix-length 1)
+(setq company-tooltip-align-annotations t)
 
 ;; Auto Complete for text
 ;(ac-config-default)

@@ -56,6 +56,8 @@
 
 
 
+(add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
+
 (global-set-key (kbd "C-M-n") 'my-forward-list)
 
 (global-set-key (kbd "C-q") 'string-inflection-all-cycle)
