@@ -11,6 +11,16 @@
 (define-key evil-normal-state-map ";" 'evil-forward-char)
 (define-key evil-visual-state-map ";" 'evil-forward-char)
 
+;; Fix consistency issues with upper case keys
+(define-key evil-normal-state-map "H" 'evil-lookup)
+(define-key evil-visual-state-map "H" 'evil-lookup)
+(define-key evil-normal-state-map "L" 'evil-window-top)
+(define-key evil-visual-state-map "L" 'evil-window-top)
+(define-key evil-normal-state-map "K" 'evil-window-bottom)
+(define-key evil-visual-state-map "K" 'evil-window-bottom)
+
+(global-set-key (kbd "M-r") (lambda () (interactive) (message "Use `M', `L', or `K' instead")))
+(global-set-key (kbd "C-l") (lambda () (interactive) (message "Use `zz', `zt', or `zb' instead")))
 
 (define-key evil-insert-state-map (kbd "C-,") 'find-tag)
 (define-key evil-visual-state-map (kbd "C-,") 'find-tag)
