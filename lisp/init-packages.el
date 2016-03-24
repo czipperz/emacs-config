@@ -1,5 +1,8 @@
 (set-frame-font "Meslo LG S DZ-11")
 
+;; Skip underscores in forward word
+(modify-seqence-entry ?_ "w")
+
 ;; Magit - Git inside emacs is awesome -> `C-z s' or `M-x magit-status'
 ;; (setq magit-last-seen-setup-instructions "1.4.0") ; Hide message
 ;; (autoload 'magit-status "magit" nil t)
