@@ -69,6 +69,18 @@
            ))
     ) t)
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+
+;; auto insert `#include "x.hh"' for `x.cc'
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-match "\\.cc\\'" buffer-file-name)
+                                           (equal (buffer-size) 0))
+                                  (let ((buf (file-name-nondirectory buffer-file-name)))
+                                    (let ((i (concat (substring buf 0
+                                                                (- (length buf) 3))
+                                                     ".hh")))
+                                      (insert (concat "#include \"" i "\"\n\n\n"))
+                                      (forward-line -1))))))
+
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-match "\\.hh\\'" buffer-file-name)
                                            (equal (buffer-size) 0))
