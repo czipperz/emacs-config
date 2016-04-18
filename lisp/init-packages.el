@@ -118,6 +118,16 @@
                                                       "\n\n\n\n#endif\n"))
                                       (forward-line -3))))))
 
+;; auto markdown header
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-equal "README.md" (file-name-nondirectory buffer-file-name))
+                                           (equal (buffer-size) 0))
+                                  (let ((fn (file-name-directory buffer-file-name)))
+                                    (insert (concat "# " (file-name-nondirectory
+                                                         (substring fn 0 (- (length fn) 1)))
+                                                    "\n\n\n"))
+                                    (forward-line -1)))))
+
 (c-set-offset 'case-label '+)
 (c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
