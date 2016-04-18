@@ -92,6 +92,31 @@
                                                       "\n#define HEADER_GUARD_" i
                                                       "\n\n\n\n#endif\n"))
                                       (forward-line -3))))))
+
+;; auto insert `#include "x.h"' for `x.c'
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-match "\\.c\\'" buffer-file-name)
+                                           (equal (buffer-size) 0))
+                                  (let ((buf (file-name-nondirectory buffer-file-name)))
+                                    (let ((i (concat (substring buf 0
+                                                                (- (length buf) 2))
+                                                     ".h")))
+                                      (insert (concat "#include \"" i "\"\n\n\n"))
+                                      (forward-line -1))))))
+
+;; auto header guard
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-match "\\.h\\'" buffer-file-name)
+                                           (equal (buffer-size) 0))
+                                  (let ((buf (file-name-nondirectory buffer-file-name)))
+                                    (let ((i (concat (substring (upcase buf) 0
+                                                                (- (length buf) 2))
+                                                     "_H")))
+                                      (insert (concat "#ifndef HEADER_GUARD_" i
+                                                      "\n#define HEADER_GUARD_" i
+                                                      "\n\n\n\n#endif\n"))
+                                      (forward-line -3))))))
+
 (c-set-offset 'case-label '+)
 (c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
