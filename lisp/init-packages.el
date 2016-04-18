@@ -81,6 +81,7 @@
                                       (insert (concat "#include \"" i "\"\n\n\n"))
                                       (forward-line -1))))))
 
+;; auto header guard
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-match "\\.hh\\'" buffer-file-name)
                                            (equal (buffer-size) 0))
