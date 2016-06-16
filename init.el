@@ -15,6 +15,7 @@
    (quote
     ("ea489f6710a3da0738e7dbdfc124df06a4e3ae82f191ce66c2af3e0a15e99b90" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
  '(savehist-mode t)
  '(scroll-bar-mode nil)
  '(send-mail-function (quote smtpmail-send-it))
