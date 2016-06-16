@@ -9,6 +9,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auth-source-save-behavior nil)
+ '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backups/"))))
  '(blink-matching-paren nil)
  '(custom-safe-themes
    (quote
