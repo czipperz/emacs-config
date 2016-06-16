@@ -1,5 +1,8 @@
 (set-frame-font "Meslo LG S DZ-11")
 
+;; tramp
+(setq tramp-default-method "ssh")
+
 ;; Skip underscores in forward word
 (modify-seqence-entry ?_ "w")
 

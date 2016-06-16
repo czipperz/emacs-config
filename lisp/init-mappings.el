@@ -18,6 +18,7 @@
 (global-set-key (kbd (concat my-prefix " C-e")) 'my/end-of-visual-line)
 (global-set-key (kbd (concat my-prefix " C-m")) 'compile)
 (global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
+(global-set-key (kbd (concat my-prefix " C-r")) '(lambda () (interactive) (find-file "/ssh:gregoryc@shell.cgrb.oregonstate.edu#732:/home/pharmacy/gregoryc/")))
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 
 (global-unset-key (kbd (concat my-prefix " j")))
