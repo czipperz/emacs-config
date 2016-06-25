@@ -277,6 +277,7 @@
   (edit-server-start)
   (message "Edit Server for Chrome up"))
 
+;; Enable extra emacs features
 (put 'set-goal-column 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 
