@@ -155,6 +155,7 @@
 (add-hook 'c-mode-hook 'cwarn-mode)
 (add-hook 'c++-mode-hook 'cwarn-mode)
 ;; Preprocessor highlighting
+(add-hook 'c-mode-hook 'preproc-font-lock-mode)
 (add-hook 'c++-mode-hook 'preproc-font-lock-mode)
 ;; Disassemble c/c++ code
 (define-key c-mode-base-map (kbd "C-c d") 'disaster)
