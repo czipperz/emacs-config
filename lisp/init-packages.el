@@ -257,6 +257,9 @@
 (add-hook 'lisp-mode-hook       'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
+;; Interactive displaying of arguments to function at point
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+
 ;; Paredit
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
