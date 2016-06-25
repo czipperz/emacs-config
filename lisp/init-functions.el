@@ -40,6 +40,18 @@
  */\n\n"
                    year)))))))
 
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (if (and evil-mode (eq (following-char) ?\))) (forward-char 1))
+  (backward-sexp)
+  (let ((b (point)))
+    (forward-sexp)
+    (let ((e (point)) (value (eval (preceding-sexp))))
+      (goto-char b)
+      (kill-sexp)
+      (insert (format "%s" value)))))
+
 (defun my-forward-list (&optional ARG) "Fixes my-forward-list for evil mode"
    (interactive "^p")
    (forward-list ARG)
