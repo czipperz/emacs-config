@@ -45,6 +45,7 @@
              evil
              init-evil
              powerline
+             init-extra-cedit-functions
              init-powerline
              init-mappings
              init-functions
