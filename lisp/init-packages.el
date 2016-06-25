@@ -153,6 +153,7 @@
 (c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
+(add-hook 'c++-mode-hook 'cwarn-mode)
 ;; Preprocessor highlighting
 (add-hook 'c++-mode-hook 'preproc-font-lock-mode)
 ;; Disassemble c/c++ code
