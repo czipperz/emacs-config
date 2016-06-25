@@ -180,6 +180,22 @@
                               " "
                               filename-and-process)))
 
+;; Fill-Column Indicator for all files
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode)
+(set 'fci-rule-width 2)
+(set 'fci-rule-color "red")
+(set 'fci-handle-truncate-lines nil)
+;; disable for certain modes
+(add-hook 'text-mode-hook 'turn-off-fci-mode)
+(add-hook 'haskell-mode-hook 'turn-off-fci-mode)
+(add-hook 'help-mode-hook 'turn-off-fci-mode)
+
+;; Fill code
+(add-hook 'c-mode-common-hook 'fillcode-mode)
+(add-hook 'perl-mode-hook 'fillcode-mode)
+(add-hook 'shell-script-mode-hook 'fillcode-mode)
+
 ;; Rainbow delimeters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 

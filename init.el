@@ -75,6 +75,7 @@
 
              evil-mc                    ;multiple cursors
              preproc-font-lock          ;highlights all preprocessor lines (and continuations!)
+             fillcode                   ;allows for `M-q' (fill-paragraph) to work for code
              malinka                    ;links rtags, flycheck, projectile, and irony together
              projectile                 ;project manager
              flycheck                   ;syntax checker
