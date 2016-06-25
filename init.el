@@ -89,6 +89,7 @@
              ace-window
              highlight-quoted
              highlight-current-line
+             fill-column-indicator
 
              org
              evil-org
