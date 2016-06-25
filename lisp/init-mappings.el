@@ -47,8 +47,6 @@
                   (my/capitalize-word)
                   (insert "()")))
 
-;; (global-set-key (kbd (concat my-prefix " f")) 'forward-find)
-;; (global-set-key (kbd (concat my-prefix " b")) 'backward-find)
 
 (global-set-key (kbd (concat my-prefix " C-o")) 'ace-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
