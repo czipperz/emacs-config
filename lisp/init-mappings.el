@@ -12,6 +12,7 @@
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 (global-set-key (kbd (concat my-prefix " c")) 'comment-line)
 (global-set-key (kbd (concat my-prefix " d")) 'diff-buffer-with-current-file)
+(global-set-key (kbd (concat my-prefix " e")) 'eval-and-replace)
 (global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
 (global-set-key (kbd (concat my-prefix " s")) 'magit-status)
 (global-set-key (kbd (concat my-prefix " t")) 'term)
