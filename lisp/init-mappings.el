@@ -125,6 +125,12 @@
 (add-hook 'c++-mode-hook 'my-cedit-setup)
 (add-hook 'c-mode-hook 'my-cedit-setup)
 
+(add-hook 'paredit-mode-hook
+          '(lambda () (interactive)
+             (local-set-key (kbd "C-M-r") 'paredit-raise-sexp)
+             (local-set-key (kbd "C-d") 'paredit-splice-sexp-killing-forward)
+             (local-set-key (kbd "M-d") 'paredit-splice-sexp-killing-backward)))
+
 (add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
 
 (global-set-key (kbd "C-M-n") 'my-forward-list)
