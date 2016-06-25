@@ -100,6 +100,31 @@
       (evil-define-key 'visual map (kbd (concat "M-r " (car key-data))) (cdr key-data)))
     map))
 
+(global-unset-key (kbd "C-l"))
+(global-unset-key (kbd "C-l w"))
+
+(global-set-key (kbd "C-l m") 'license/mpl-header)
+(global-set-key (kbd "C-l p") 'license/public-domain-header)
+
+(defun my-cedit-setup ()
+  (local-set-key (kbd "C-M-r") 'cedit-raise)
+  (dolist (key-data (list (cons "M-S" 'cedit-barf)
+                          (cons "C-l j" 'cedit-barf)
+                          (cons "C-l ;" 'cedit-slurp)
+                          (cons "C-l w b" 'cedit-wrap-brace)
+                          (cons "C-l w {" 'cedit-wrap-brace)
+                          (cons "C-l w i" 'cedit-wrap-if)
+                          (cons "C-l w d" 'cedit-wrap-do-while)
+                          (cons "C-l w w" 'cedit-wrap-while)
+                          (cons "C-l w f" 'cedit-wrap-for)
+                          (cons "M-d" 'cedit-splice-killing-backward)))
+    (evil-local-set-key 'normal (kbd (car key-data)) (cdr key-data))
+    (evil-local-set-key 'visual (kbd (car key-data)) (cdr key-data))
+    (evil-local-set-key 'insert (kbd (car key-data)) (cdr key-data))))
+
+(add-hook 'c++-mode-hook 'my-cedit-setup)
+(add-hook 'c-mode-hook 'my-cedit-setup)
+
 (add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
 
 (global-set-key (kbd "C-M-n") 'my-forward-list)
