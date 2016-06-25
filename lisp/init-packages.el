@@ -176,7 +176,7 @@
 (add-hook 'forth-mode-hook (function (lambda () (setq forth-indent-level 4))))
 
 ;; elisp-format
-(set 'elisp-format-column 80)
+(set 'elisp-format-column fill-column)
 
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
