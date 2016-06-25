@@ -131,6 +131,11 @@
              (local-set-key (kbd "C-d") 'paredit-splice-sexp-killing-forward)
              (local-set-key (kbd "M-d") 'paredit-splice-sexp-killing-backward)))
 
+;; Seems like `M-g {n,p}' have completely stopped working for some
+;; random reason.  Use `M-g M-{n,p}' (defaults) to get old behavior
+(global-set-key (kbd "M-g n") 'flycheck-next-error)
+(global-set-key (kbd "M-g p") 'flycheck-previous-error)
+
 (add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
 
 (global-set-key (kbd "C-M-n") 'my-forward-list)
