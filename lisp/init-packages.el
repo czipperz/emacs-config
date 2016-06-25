@@ -161,6 +161,7 @@
 (define-key c-mode-base-map (kbd "C-c d") 'disaster)
 (add-hook 'llvm-mode-hook 'demangle-mode)
 
+;; Forth files
 (autoload 'forth-mode "gforth.el")
 (setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))
 (autoload 'forth-block-mode "gforth.el")
