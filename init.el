@@ -30,8 +30,9 @@
  '(highlight-current-line-face ((t (:background "gray0")))))
 
 (require 'package)
-(push '("marmalade" . "http://marmalade-repo.org/packages/") package-archives)
-(push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; (push '("melpa" . "http://melpa.milkbox.net/packages/") package-archives)
 (package-initialize)
 
 (load-theme 'solarized-dark) ; load theme here
