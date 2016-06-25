@@ -40,15 +40,22 @@
 (global-set-key (kbd (concat my-prefix " j e")) 'groovy-each-to-for)
 (global-set-key (kbd (concat my-prefix " j (")) 'groovy-space-to-parens)
 (global-set-key (kbd (concat my-prefix " j n")) 'c-prog-sep-semicolon)
-(global-set-key (kbd (concat my-prefix " j C-g")) (lambda () (interactive) (insert "get") (my/capitalize-word) (insert "()")))
+(global-set-key (kbd (concat my-prefix " j C-g"))
+                (lambda ()
+                  (interactive)
+                  (insert "get")
+                  (my/capitalize-word)
+                  (insert "()")))
 
 ;; (global-set-key (kbd (concat my-prefix " f")) 'forward-find)
 ;; (global-set-key (kbd (concat my-prefix " b")) 'backward-find)
 
 (global-set-key (kbd (concat my-prefix " C-o")) 'ace-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
+(add-hook 'sh-mode-hook
+          '(lambda ()
+             (local-set-key (kbd (concat my-prefix " p")) 'insert-perl-regexp)))
 
-(add-hook 'sh-mode-hook '(lambda () (local-set-key (kbd (concat my-prefix " p")) 'insert-perl-regexp)))
 
 
 
