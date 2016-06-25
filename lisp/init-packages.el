@@ -192,6 +192,8 @@
                                  '(lambda ()
                                     (interactive)
                                     (insert "\\")))))
+;; begin/end of defun for haskell
+(add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
 
 ;; Rust
 (add-hook 'rust-mode-hook
