@@ -1,5 +1,10 @@
 (set-frame-font "Meslo LG S DZ-11")
 
+;; save edit place
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file "~/.emacs.d/saved-places")
+
 ;; tramp
 (setq tramp-default-method "ssh")
 
