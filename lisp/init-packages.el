@@ -136,7 +136,7 @@
                                                       "\n\n\n\n#endif\n"))
                                       (forward-line -3))))))
 
-;; auto markdown header
+;; Auto Markdown header
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-equal "README.md" (file-name-nondirectory buffer-file-name))
                                            (equal (buffer-size) 0))
