@@ -19,6 +19,7 @@
 (global-set-key (kbd (concat my-prefix " s")) 'magit-status)
 (global-set-key (kbd (concat my-prefix " t")) 'term)
 (global-set-key (kbd (concat my-prefix " u")) 'uncomment-line)
+(global-set-key (kbd (concat my-prefix " w")) 'whitespace-cleanup)
 
 (global-unset-key (kbd (concat my-prefix " m")))
 (global-set-key (kbd (concat my-prefix " m m")) 'compose-mail)
