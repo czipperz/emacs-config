@@ -11,6 +11,10 @@
 ;; Instant gratification for key strokes
 (set 'echo-keystrokes -1)
 
+;; Whitespace highlighting
+(set 'whitespace-style '(trailing tab-mark face))
+(global-whitespace-mode 1)
+
 ;; Magit - Git inside emacs is awesome -> `C-z s' or `M-x magit-status'
 ;; (setq magit-last-seen-setup-instructions "1.4.0") ; Hide message
 ;; (autoload 'magit-status "magit" nil t)
