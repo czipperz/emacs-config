@@ -88,6 +88,12 @@
              highlight-quoted
              highlight-current-line
 
+             org
+             evil-org
+
+             paredit
+             evil-paredit
+
              string-inflection          ;allows for changes between camel case and snake
                                         ;and different types of both
 

@@ -190,6 +190,10 @@
 (add-hook 'lisp-mode-hook       'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 
+;; Paredit
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
+
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'toggle-word-wrap)
 
