@@ -57,6 +57,11 @@
 
 
 
+(global-unset-key (kbd "C-l"))
+
+(global-set-key (kbd "C-l m") 'license/mpl-header)
+(global-set-key (kbd "C-l p") 'license/public-domain-header)
+
 (add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
 
 (global-set-key (kbd "C-M-n") 'my-forward-list)
