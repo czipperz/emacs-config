@@ -21,6 +21,12 @@
 (global-set-key (kbd (concat my-prefix " C-r")) '(lambda () (interactive) (find-file "/ssh:gregoryc@shell.cgrb.oregonstate.edu#732:/home/pharmacy/gregoryc/")))
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 
+(global-unset-key (kbd (concat my-prefix " m")))
+(global-set-key (kbd (concat my-prefix " m m")) 'compose-mail)
+(global-set-key (kbd (concat my-prefix " m c")) 'mail-cc)
+(global-set-key (kbd (concat my-prefix " m b")) 'mail-bcc)
+(global-set-key (kbd (concat my-prefix " m a")) 'mail-add-attachment)
+
 (global-unset-key (kbd (concat my-prefix " j")))
 (global-set-key (kbd (concat my-prefix " j g")) 'java-get/set)
 (global-set-key (kbd (concat my-prefix " j a")) 'java-get/set-&-align)
