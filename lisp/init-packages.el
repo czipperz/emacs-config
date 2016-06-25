@@ -272,6 +272,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; zsh scripts are shell scripts
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
+
 ;; Chrome edit server
 (when (daemonp)
   (edit-server-start)
