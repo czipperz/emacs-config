@@ -77,9 +77,8 @@
 
            ;; user-defined types (rather project-specific)
            ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(type\\|ptr\\)\\>" . font-lock-type-face)
-           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)
-           ))
-    ) t)
+           ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)))) t)
+
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
 ;; auto insert `#include "x.hh"' for `x.cc'
