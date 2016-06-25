@@ -79,20 +79,38 @@
            ("\\<[A-Za-z_]+[A-Za-z_0-9]*_\\(type\\|ptr\\)\\>" . font-lock-type-face)
            ("\\<\\(xstring\\|xchar\\)\\>" . font-lock-type-face)))) t)
 
+;; Default to c++11
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
-;; auto insert `#include "x.hh"' for `x.cc'
+;; Auto insert main function
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (let ((buf (file-name-nondirectory buffer-file-name)))
+                                             (or (string-equal "main.c" buf)
+                                                 (string-equal "main.cc" buf)))
+                                           (equal (buffer-size) 0))
+                                  (insert "int main() {\n\n}\n")
+                                  (forward-line -2)
+                                  (indent-for-tab-command))))
+
+;; Auto include for `*.cc' files
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-match "\\.cc\\'" buffer-file-name)
                                            (equal (buffer-size) 0))
                                   (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (let ((i (concat (substring buf 0
-                                                                (- (length buf) 3))
-                                                     ".hh")))
-                                      (insert (concat "#include \"" i "\"\n\n\n"))
-                                      (forward-line -1))))))
+                                    (insert (concat "#include \""
+                                                    (substring buf 0 (- (length buf) 3))
+                                                    ".hh\"\n\n"))))))
 
-;; auto header guard
+;; Auto include for `*.c' files
+(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
+                                           (string-match "\\.c\\'" buffer-file-name)
+                                           (equal (buffer-size) 0))
+                                  (let ((buf (file-name-nondirectory buffer-file-name)))
+                                    (insert (concat "#include \""
+                                                    (substring buf 0 (- (length buf) 2))
+                                                    ".h\"\n\n"))))))
+
+;; Auto insert header guard for `*.hh' files
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-match "\\.hh\\'" buffer-file-name)
                                            (equal (buffer-size) 0))
@@ -105,18 +123,7 @@
                                                       "\n\n\n\n#endif\n"))
                                       (forward-line -3))))))
 
-;; auto insert `#include "x.h"' for `x.c'
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-match "\\.c\\'" buffer-file-name)
-                                           (equal (buffer-size) 0))
-                                  (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (let ((i (concat (substring buf 0
-                                                                (- (length buf) 2))
-                                                     ".h")))
-                                      (insert (concat "#include \"" i "\"\n\n\n"))
-                                      (forward-line -1))))))
-
-;; auto header guard
+;; Auto insert header guard for `*.h' files
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
                                            (string-match "\\.h\\'" buffer-file-name)
                                            (equal (buffer-size) 0))
