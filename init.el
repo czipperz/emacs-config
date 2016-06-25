@@ -49,13 +49,14 @@
              init-powerline
              init-mappings
              init-functions
-             init-shell-highlighting
 
              ;;; Other requires
              tramp                      ;ssh
+             ;; doxymacs
              expand-region
              haskell-mode
              hi2                        ;haskell indent
+             ;; shm                        ;paredit for haskell
              helm-config                ;completion for menus
              smartparens-config         ;matching grouping symbols
                                         ;highlighted with cursor
