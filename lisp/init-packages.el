@@ -8,9 +8,6 @@
 ;; tramp
 (setq tramp-default-method "ssh")
 
-;; Skip underscores in forward word
-(modify-seqence-entry ?_ "w")
-
 ;; Instant gratification for key strokes
 (set 'echo-keystrokes -1)
 
