@@ -137,6 +137,9 @@
 (add-hook 'c-mode-hook 'cwarn-mode)
 ;; Preprocessor highlighting
 (add-hook 'c++-mode-hook 'preproc-font-lock-mode)
+;; Disassemble c/c++ code
+(define-key c-mode-base-map (kbd "C-c d") 'disaster)
+(add-hook 'llvm-mode-hook 'demangle-mode)
 
 (autoload 'forth-mode "gforth.el")
 (setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))

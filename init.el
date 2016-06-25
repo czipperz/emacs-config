@@ -80,6 +80,7 @@
              projectile                 ;project manager
              flycheck                   ;syntax checker
              irony                      ;c/c++ completions
+             disaster                   ;see compiled assembly for c/c++
 
              forth-mode                 ;gforth
 
