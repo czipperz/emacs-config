@@ -49,6 +49,8 @@
              init-powerline
              init-mappings
              init-functions
+             highlight-quoted-vars
+
              init-magit-evil-rebase
 
              ;;; Other requires
