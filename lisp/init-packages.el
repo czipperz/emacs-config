@@ -181,6 +181,18 @@
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
+;; paredit for haskell
+(add-hook 'haskell-mode-hook
+          '(lambda ()
+             (interactive)
+             (paredit-mode 1)
+             (evil-paredit-mode 1)
+             (haskell-indent-mode nil)
+             (evil-local-set-key 'insert (kbd "\\")
+                                 '(lambda ()
+                                    (interactive)
+                                    (insert "\\")))))
+
 ;; Rust
 (add-hook 'rust-mode-hook
           '(lambda ()
