@@ -74,6 +74,32 @@
 (global-set-key (kbd "C-l m") 'license/mpl-header)
 (global-set-key (kbd "C-l p") 'license/public-domain-header)
 
+(setq evil-mc-key-map
+  (let ((map (make-sparse-keymap))
+        (keys (list (cons "m" 'evil-mc-make-all-cursors)
+                    (cons "u" 'evil-mc-undo-all-cursors)
+                    (cons "s" 'evil-mc-pause-cursors)
+                    (cons "r" 'evil-mc-resume-cursors)
+                    (cons "f" 'evil-mc-make-and-goto-first-cursor)
+                    (cons "l" 'evil-mc-make-and-goto-last-cursor)
+                    (cons "h"
+                          '(lambda ()
+                             (interactive)
+                             (evil-mc-make-cursor-here)
+                             (evil-mc-pause-cursors)))
+                    (cons "M-n" 'evil-mc-make-and-goto-next-cursor)
+                    (cons "M-N" 'evil-mc-skip-and-goto-next-cursor)
+                    (cons "M-p" 'evil-mc-make-and-goto-prev-cursor)
+                    (cons "M-P" 'evil-mc-skip-and-goto-prev-cursor)
+                    (cons "n" 'evil-mc-make-and-goto-next-match)
+                    (cons "N" 'evil-mc-skip-and-goto-next-match)
+                    (cons "p" 'evil-mc-make-and-goto-prev-match)
+                    (cons "p" 'evil-mc-skip-and-goto-prev-match))))
+    (dolist (key-data keys)
+      (evil-define-key 'normal map (kbd (concat "M-r " (car key-data))) (cdr key-data))
+      (evil-define-key 'visual map (kbd (concat "M-r " (car key-data))) (cdr key-data)))
+    map))
+
 (add-hook 'company-mode-hook '(lambda () (local-set-key (kbd "C-i") 'company-indent-or-complete-common)))
 
 (global-set-key (kbd "C-M-n") 'my-forward-list)
