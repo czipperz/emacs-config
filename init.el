@@ -49,7 +49,6 @@
              init-powerline
              init-mappings
              init-functions
-             init-mode-font
              init-shell-highlighting
 
              ;;; Other requires
