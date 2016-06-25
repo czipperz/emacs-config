@@ -1,4 +1,4 @@
-(defvar my-prefix "C-s")
+(defvar my-prefix "C-s" "Prefix to my keyboard shortcuts that don't overload default keys")
 
 (global-unset-key (kbd my-prefix))
 (global-set-key (kbd (concat my-prefix " d")) 'diff-buffer-with-current-file)
