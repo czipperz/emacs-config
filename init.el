@@ -49,6 +49,7 @@
              init-powerline
              init-mappings
              init-functions
+             init-magit-evil-rebase
 
              ;;; Other requires
              tramp                      ;ssh
