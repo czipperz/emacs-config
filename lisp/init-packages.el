@@ -275,6 +275,14 @@
 ;; zsh scripts are shell scripts
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . shell-script-mode))
 
+;; Use nxml-mode instead of associated ml modes as it is rediculously
+;; better.
+(mapc (lambda (pair) (if (or (eq (cdr pair) 'xml-mode)
+                             (eq (cdr pair) 'sgml-mode)
+                             (eq (cdr pair) 'html-mode))
+                         (setcdr pair 'nxml-mode)))
+      magic-mode-alist)
+
 ;; Chrome edit server
 (when (daemonp)
   (edit-server-start)
