@@ -146,6 +146,9 @@
                                                     "\n\n\n"))
                                     (forward-line -1)))))
 
+;; globally enable multiple cursors
+(global-evil-mc-mode 1)
+
 (c-set-offset 'case-label '+)
 (c-set-offset 'innamespace 0)
 ;; cwarn to check for errors
