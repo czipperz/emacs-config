@@ -47,9 +47,10 @@
                   (my/capitalize-word)
                   (insert "()")))
 
-
-(global-set-key (kbd (concat my-prefix " C-o")) 'ace-window)
+(global-set-key (kbd (concat my-prefix " o")) 'ace-window)
+(global-set-key (kbd (concat my-prefix " C-o")) 'ace-swap-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
+
 (add-hook 'sh-mode-hook
           '(lambda ()
              (local-set-key (kbd (concat my-prefix " p")) 'insert-perl-regexp)))
