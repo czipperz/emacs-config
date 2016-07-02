@@ -17,7 +17,7 @@
 
 (defun cedit-wrap-for () (interactive)
        (cedit-wrap-brace)
-       (insert "for (;;) ")
-       (backward-char 4))
+       (insert "for () ")
+       (backward-char 2))
 
 (provide 'init-extra-cedit-functions)
