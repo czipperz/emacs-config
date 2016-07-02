@@ -20,4 +20,11 @@
        (insert "for () ")
        (backward-char 2))
 
+(defun cedit-wrap-try () (interactive)
+       (cedit-wrap-brace)
+       (insert "try ")
+       (forward-list)
+       (insert " catch () {}")
+       (backward-char 4))
+
 (provide 'init-extra-cedit-functions)
