@@ -51,7 +51,6 @@
              init-functions
              highlight-quoted-vars
              init-c++
-
              init-magit-evil-rebase
 
              ;;; Other requires
