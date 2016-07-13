@@ -27,8 +27,8 @@
                  (looking-at-p " \\*/")))
           ;; insert copyright notice
           (progn
-            (insert (concat "\n *\n * Copyright (c) " year
-                            " Chris Gregory czipperz@gmail.com\n")))
+            (insert "\n *\n * Copyright (c) " year
+                    " Chris Gregory czipperz@gmail.com\n"))
         (when (not
                (progn
                  (goto-char (point-min))
