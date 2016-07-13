@@ -46,59 +46,14 @@
 ;; Default to c++11
 (add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
 
-;; Auto insert main function
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (let ((buf (file-name-nondirectory buffer-file-name)))
-                                             (or (string-equal "main.c" buf)
-                                                 (string-equal "main.cc" buf)))
-                                           (equal (buffer-size) 0))
-                                  (insert "int main() {\n\n}\n")
-                                  (forward-line -2)
-                                  (indent-for-tab-command))))
+;; Auto include for `*.cc' and `*.c' files, auto insert main function
+;; for `main.c' or `main.cc'
+(add-hook 'find-file-hook 'auto-include-header-cc)
+(add-hook 'find-file-hook 'auto-include-header-c)
 
-;; Auto include for `*.cc' files
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-match "\\.cc\\'" buffer-file-name)
-                                           (equal (buffer-size) 0))
-                                  (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (insert (concat "#include \""
-                                                    (substring buf 0 (- (length buf) 3))
-                                                    ".hh\"\n\n"))))))
-
-;; Auto include for `*.c' files
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-match "\\.c\\'" buffer-file-name)
-                                           (equal (buffer-size) 0))
-                                  (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (insert (concat "#include \""
-                                                    (substring buf 0 (- (length buf) 2))
-                                                    ".h\"\n\n"))))))
-
-;; Auto insert header guard for `*.hh' files
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-match "\\.hh\\'" buffer-file-name)
-                                           (equal (buffer-size) 0))
-                                  (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (let ((i (concat (substring (upcase buf) 0
-                                                                (- (length buf) 3))
-                                                     "_H")))
-                                      (insert (concat "#ifndef HEADER_GUARD_" i
-                                                      "\n#define HEADER_GUARD_" i
-                                                      "\n\n\n\n#endif\n"))
-                                      (forward-line -3))))))
-
-;; Auto insert header guard for `*.h' files
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-match "\\.h\\'" buffer-file-name)
-                                           (equal (buffer-size) 0))
-                                  (let ((buf (file-name-nondirectory buffer-file-name)))
-                                    (let ((i (concat (substring (upcase buf) 0
-                                                                (- (length buf) 2))
-                                                     "_H")))
-                                      (insert (concat "#ifndef HEADER_GUARD_" i
-                                                      "\n#define HEADER_GUARD_" i
-                                                      "\n\n\n\n#endif\n"))
-                                      (forward-line -3))))))
+;; Auto insert header guard for `*.hh' files.
+(add-hook 'find-file-hook 'insert-header-guard-hh)
+(add-hook 'find-file-hook 'insert-header-guard-h)
 
 ;; Auto Markdown header
 (add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)

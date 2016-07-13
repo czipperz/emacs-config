@@ -3,6 +3,68 @@
   (interactive)
   (message (format "Point: %s" (point))))
 
+(defun auto-insert-main-c ()
+  "Auto insert main function for c/c++."
+  (interactive)
+  (insert "int main(){\n\n}\n")
+  (forward-line -2)
+  (indent-for-tab-command))
+
+(defun auto-include-header-cc ()
+  "Auto include header for `*.cc' files."
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.cc\\'" buffer-file-name)
+             (equal (buffer-size) 0))
+    (let ((buf (file-name-nondirectory buffer-file-name)))
+      (if (string= buf "main.cc")
+          (auto-insert-main-c)
+        (insert "#include \""
+                (substring buf 0 (- (length buf) 3))
+                ".hh\"\n\n")))))
+
+(defun auto-include-header-c ()
+  "Auto include header for `*.c' files."
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.c\\'" buffer-file-name)
+             (equal (buffer-size) 0))
+    (let ((buf (file-name-nondirectory buffer-file-name)))
+      (if (string= buf "main.c")
+          (auto-insert-main-c)
+        (insert "#include \""
+                (substring buf 0 (- (length buf) 2))
+                ".h\"\n\n")))))
+
+(defun insert-header-guard-hh ()
+  "Auto insert header guard for `*.hh' files."
+  (interactive)
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.hh\\'" buffer-file-name)
+             (equal (buffer-size) 0))
+    (let ((buf (file-name-nondirectory buffer-file-name)))
+      (let ((i (concat (substring (upcase buf) 0
+                                  (- (length buf) 3))
+                       "_H")))
+        (insert "#ifndef HEADER_GUARD_" i
+                "\n#define HEADER_GUARD_" i
+                "\n\n\n\n#endif\n")
+        (forward-line -3)))))
+
+(defun insert-header-guard-h ()
+  "Auto insert header guard for `*.h' files."
+  (interactive)
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.h\\'" buffer-file-name)
+             (equal (buffer-size) 0))
+    (let ((buf (file-name-nondirectory buffer-file-name)))
+      (let ((i (concat (substring (upcase buf) 0
+                                  (- (length buf) 2))
+                       "_H")))
+        (insert "#ifndef HEADER_GUARD_" i
+                "\n#define HEADER_GUARD_" i
+                "\n\n\n\n#endif\n")
+        (forward-line -3)))))
+
+
 (defun license/public-domain-header ()
   "Insert CC0 public domain license header at top of file"
   (interactive)
