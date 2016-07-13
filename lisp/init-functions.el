@@ -515,7 +515,6 @@ REQUIRES line is all the code."
         (t  (back-to-indentation)
             (while (/= (char-before) ?\;)
               (forward-char))
-            (forward-char)
             (newline-and-indent)
             (c-prog-sep-semicolon (1- num)))))
 
