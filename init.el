@@ -50,6 +50,7 @@
              init-mappings
              init-functions
              highlight-quoted-vars
+             init-elisp
              init-c++
              init-magit-evil-rebase
 
