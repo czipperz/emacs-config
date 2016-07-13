@@ -154,10 +154,18 @@
 
 (global-unset-key (kbd "C-x C-z")) ;This would sleep emacs so unbound it
 
-(add-hook 'c-mode-hook '(lambda () (local-set-key [C-M-tab] 'clang-format)))
-(add-hook 'c++-mode-hook '(lambda () (local-set-key [C-M-tab] 'clang-format)))
-(add-hook 'emacs-lisp-mode-hook '(lambda () (local-set-key [C-M-tab] 'my/elisp-format-region)))
-(add-hook 'cargo-minor-mode-hook '(lambda () (local-set-key [C-M-tab] 'cargo-process-fmt)))
+(add-hook 'c-mode-hook
+          '(lambda ()
+             (local-set-key [C-M-tab] 'clang-format)))
+(add-hook 'c++-mode-hook
+          '(lambda ()
+             (local-set-key [C-M-tab] 'clang-format)))
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (local-set-key [C-M-tab] 'my/elisp-format-region)))
+(add-hook 'cargo-minor-mode-hook
+          '(lambda ()
+             (local-set-key [C-M-tab] 'cargo-process-fmt)))
 
 (add-hook 'diff-mode-hook '(lambda () (local-set-key (kbd "q") (lambda () (interactive) (delete-window)))))
 
