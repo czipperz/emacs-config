@@ -11,6 +11,9 @@
 (global-set-key (kbd (concat my-prefix " S")) 'sort-lines)
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
 (global-set-key (kbd (concat my-prefix " c")) 'comment-line)
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda () (local-set-key (kbd (concat my-prefix " c"))
+                                     'comment-sexp)))
 (global-set-key (kbd (concat my-prefix " d")) 'diff-buffer-with-current-file)
 (global-set-key (kbd (concat my-prefix " e")) 'eval-and-replace)
 (global-set-key (kbd (concat my-prefix " g")) 'ag-regexp)
