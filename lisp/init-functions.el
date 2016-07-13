@@ -175,6 +175,16 @@
       (uncomment-region mark (point)))))
 
 
+(defun comment-sexp ()
+  "Comments the current or following sexp"
+  (interactive)
+  (save-excursion
+    (forward-sexp)
+    (let ((mark (point)))
+      (backward-sexp)
+      (comment-region (point) mark))))
+
+
 (defun my/elisp-format-region () (interactive)
        (elisp-format-region (region-beginning) (region-end))
        (whitespace-cleanup-region (region-beginning) (region-end)))
