@@ -69,6 +69,8 @@
 
 
 
+(global-set-key (kbd "M-g C-c") 'print-point)
+
 (global-unset-key (kbd "C-l"))
 
 (global-set-key (kbd "C-l m") 'license/mpl-header)
