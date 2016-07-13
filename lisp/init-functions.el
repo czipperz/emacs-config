@@ -175,6 +175,16 @@
       (uncomment-region mark (point)))))
 
 
+(defun my/indent-sexp ()
+  "Indent the current or following sexp"
+  (interactive)
+  (save-excursion
+    (forward-sexp)
+    (let ((mark (point)))
+      (backward-sexp)
+      (indent-region (point) mark))))
+
+
 (defun comment-sexp ()
   "Comments the current or following sexp"
   (interactive)
