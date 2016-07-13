@@ -1,3 +1,8 @@
+(defun print-point ()
+  "Message the current point."
+  (interactive)
+  (message (format "Point: %s" (point))))
+
 (defun license/public-domain-header ()
   "Insert CC0 public domain license header at top of file"
   (interactive)
