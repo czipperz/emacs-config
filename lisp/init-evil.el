@@ -1,5 +1,7 @@
 (evil-mode)
 
+(setq evil-move-beyond-eol t)
+
 (define-key evil-normal-state-map "h" 'evil-repeat-find-char)
 (define-key evil-visual-state-map "h" 'evil-repeat-find-char)
 (define-key evil-normal-state-map "j" 'evil-backward-char)
