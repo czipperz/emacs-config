@@ -167,6 +167,10 @@
           '(lambda ()
              (local-set-key [C-M-tab] 'cargo-process-fmt)))
 
+(add-hook 'emacs-lisp-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-M-\\") 'my/indent-sexp)))
+
 (add-hook 'diff-mode-hook '(lambda () (local-set-key (kbd "q") (lambda () (interactive) (delete-window)))))
 
 (global-set-key (kbd "C-$") 'ispell-buffer)
