@@ -513,7 +513,7 @@ REQUIRES line is all the code."
   (interactive "p")
   (cond ((eq num 0))
         (t  (back-to-indentation)
-            (while (not (eq (get-byte) 59))
+            (while (/= (char-before) ?\;)
               (forward-char))
             (forward-char)
             (newline-and-indent)
