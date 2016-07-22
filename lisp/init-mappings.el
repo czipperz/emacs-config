@@ -50,6 +50,8 @@
                   (my/capitalize-word)
                   (insert "()")))
 
+(global-set-key (kbd (concat my-prefix " j u")) 'c++-char-to-u8)
+
 (global-set-key (kbd (concat my-prefix " o")) 'ace-window)
 (global-set-key (kbd (concat my-prefix " C-o")) 'ace-swap-window)
 (setq aw-keys '(?a ?s ?e ?r ?t ?h ?u ?i ?o ?p))
