@@ -1,3 +1,50 @@
+(defun c++-to-u8 ()
+  "Change a character or string at point (or after) to be u8.
+
+Characters are transformed to a string referencing [0]
+
+'|a'  =>  u8\"|a\"[0]
+\"|a\"  =>  u8\"|a\""
+  (interactive)
+  (let ((old-point (point)))
+    (condition-case err
+        (progn
+          (when (member (char-before) '(?\  ?\t ?\n ?\'))
+            (backward-char))
+          (when (= ?\' (or (nth 3 (syntax-ppss)) 0))
+            (while (= ?\' (or (nth 3 (syntax-ppss)) 0))
+              (backward-char)))
+          (forward-sexp)
+          (assert (= ?\' (char-before)))
+          (let ((e (point)) ret)
+            (backward-sexp)
+            (setq ret (+ old-point
+                         (if (>= old-point (point))
+                             2
+                           0)))
+            (insert "u8")
+            (assert (= ?\' (char-after)))
+            (delete-char 1)
+            (insert "\"")
+            (let ((pt (point)))
+              (forward-char)
+              (cond ((= (char-before) ?\")
+                     (backward-char)
+                     (insert "\\")
+                     (setq e (1+ e)))
+                    (t
+                     (when (and (= (char-before) ?\\)
+                                (= (char-after) ?\'))
+                       (delete-char -1)
+                       (setq e (1- e)))))
+              (goto-char pt))
+            (goto-char (+ 2 e))
+            (delete-char -1)
+            (insert "\"[0]")
+            (goto-char ret)))
+      (error (goto-char old-point)
+             (error (cadr err))))))
+
 (defun print-point ()
   "Message the current point."
   (interactive)
