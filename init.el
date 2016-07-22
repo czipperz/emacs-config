@@ -55,6 +55,7 @@
              init-magit-evil-rebase
 
              ;;; Other requires
+             cc-mode
              tramp                      ;ssh
              ;; doxymacs
              expand-region
