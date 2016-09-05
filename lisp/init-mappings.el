@@ -3,6 +3,9 @@
 (global-unset-key (kbd my-prefix))
 (global-set-key (kbd (concat my-prefix " C-a")) 'beginning-of-visual-line)
 (global-set-key (kbd (concat my-prefix " C-c")) 'comment-region)
+(add-hook 'c++-mode-hook
+          '(lambda () (local-set-key (kbd (concat my-prefix " C-c"))
+                                     'my/c-comment-region)))
 (global-set-key (kbd (concat my-prefix " C-e")) 'my/end-of-visual-line)
 (global-set-key (kbd (concat my-prefix " C-f")) 'ido-find-file)
 (global-set-key (kbd (concat my-prefix " C-m")) 'compile)

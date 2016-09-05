@@ -1,3 +1,47 @@
+(defun my/c-comment-region (beg end &optional arg)
+  "Comment the region, using region commenting if it is one line.
+
+If there are no newlines between point and mark, use /**/,
+otherwise call comment-region.
+
+ARG is the number of comment characters.  ARG must be an integer
+that is not 0.  If ARG is less than 0, it will call comment-region."
+  (interactive "*r\nP")
+  (unless arg (setq arg 1))
+  (assert (integerp arg))
+  (assert (/= 0 arg))
+  (let ((backup (point)))
+    (condition-case err
+        (let ((min (region-beginning)) (max (region-end)) has-newline)
+          (if (< arg 0)
+              (comment-region min max arg)
+            (goto-char min)
+            (while (and (/= (point) max) (not has-newline))
+              (if (= (char-after) ?\n)
+                  (setq has-newline t))
+              (forward-char))
+            (if has-newline
+                (progn
+                  (goto-char backup)
+                  (comment-region min max arg))
+              (goto-char min)
+              (insert "/")
+              (let ((i 0))
+                (while (/= i arg)
+                  (insert "*")
+                  (setq i (1+ i))))
+              (insert " ")
+              (goto-char (+ 2 arg max))
+              (insert " ")
+              (let ((i 0))
+                (while (/= i arg)
+                  (insert "*")
+                  (setq i (1+ i))))
+              (insert "/")
+              (goto-char (+ 2 arg backup)))))
+        (error (goto-char backup)
+               (error (cadr err))))))
+
 (defun c++-to-u8 ()
   "Change a character or string at point (or after) to be u8.
 
