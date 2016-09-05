@@ -1,3 +1,10 @@
+(defun my/open-cgrb ()
+  "Open CGRB using find-file and tramp."
+  (interactive)
+  (find-file (concat "/ssh:gregoryc@"
+                     "shell.cgrb.oregonstate.edu#"
+                     "732:/home/pharmacy/gregoryc/")))
+
 (defun my/c-comment-region (beg end &optional arg)
   "Comment the region, using region commenting if it is one line.
 
