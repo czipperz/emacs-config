@@ -56,14 +56,7 @@
 (add-hook 'find-file-hook 'insert-header-guard-h)
 
 ;; Auto Markdown header
-(add-hook 'find-file-hook (lambda () (when (and (stringp buffer-file-name)
-                                           (string-equal "README.md" (file-name-nondirectory buffer-file-name))
-                                           (equal (buffer-size) 0))
-                                  (let ((fn (file-name-directory buffer-file-name)))
-                                    (insert (concat "# " (file-name-nondirectory
-                                                         (substring fn 0 (- (length fn) 1)))
-                                                    "\n\n\n"))
-                                    (forward-line -1)))))
+(add-hook 'find-file-hook 'auto-insert-README.md-header)
 
 ;; globally enable multiple cursors
 (global-evil-mc-mode 1)

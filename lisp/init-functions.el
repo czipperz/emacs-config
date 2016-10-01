@@ -215,6 +215,20 @@ Characters are transformed to a string referencing [0]
   (interactive)
   (message (format "Point: %s" (point))))
 
+(defun auto-insert-README.md-header ()
+  "Auto insert header declaration for README.md based on upper directory's name."
+  (interactive)
+  (when (and (stringp buffer-file-name)
+             (string-equal "README.md"
+                           (file-name-nondirectory buffer-file-name))
+             (equal (buffer-size) 0))
+    (let ((fn (file-name-directory buffer-file-name)))
+      (insert (concat "# "
+                      (file-name-nondirectory
+                       (substring fn 0 (- (length fn) 1)))
+                      "\n\n\n"))
+      (forward-line -1))))
+
 (defun auto-insert-main-c ()
   "Auto insert main function for c/c++."
   (interactive)
