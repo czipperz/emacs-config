@@ -771,6 +771,27 @@ REQUIRES line is all the code."
     (backward-delete-char-untabify 1)))
 
 
+(defun async-list-packages (&optional no-fetch)
+  (interactive)
+  (if (null no-fetch)
+      (async-start (lambda ()
+                     ;; fetch packages asynchronously
+                     (message "Fetching packages")
+                     (list-packages))
+                   (lambda (_res)
+                     ;; then load them synchronously
+                     (message "Loading packages")
+                     (list-packages t)))
+    (message "Loading packages")
+    (list-packages t)))
+(defun async-list-packages-no-fetch ()
+  "Asynchronously list packages without fetching their contents.
+
+Equivalent to `(async-list-packages t)'."
+  (interactive)
+  (async-list-packages t))
+
+
 (defun interactive-update-packages ()
   "Update packages autonomously, requiring the user to type yes a few times."
   (interactive)
