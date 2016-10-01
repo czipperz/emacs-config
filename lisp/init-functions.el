@@ -781,6 +781,7 @@ REQUIRES line is all the code."
 
 
 (defun backward-whitespace ()
+  "Go backward through non whitespace then through whitespace."
   (interactive)
   (while (or (eq (get-byte) 10)
              (eq (get-byte) 32)
