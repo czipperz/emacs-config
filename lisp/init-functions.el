@@ -783,17 +783,11 @@ REQUIRES line is all the code."
 (defun backward-whitespace ()
   "Go backward through non whitespace then through whitespace."
   (interactive)
-  (while (or (eq (get-byte) 10)
-             (eq (get-byte) 32)
-             (eq (get-byte) 9))
+  (while (member (get-byte) '(?\n ?\t ?\ ))
     (backward-char))
-  (while (not (or (eq (get-byte) 10)
-                  (eq (get-byte) 32)
-                  (eq (get-byte) 9)))
+  (while (not (member (get-byte) '(?\n ?\t ?\ )))
     (backward-char))
-  (while (or (eq (get-byte) 10)
-             (eq (get-byte) 32)
-             (eq (get-byte) 9))
+  (while (member (get-byte) '(?\n ?\t ?\ ))
     (backward-char)))
 
 
