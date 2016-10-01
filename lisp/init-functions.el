@@ -771,12 +771,12 @@ REQUIRES line is all the code."
     (backward-delete-char-untabify 1)))
 
 
-(defun interactive-update-packages () "Just type `yes' a few times"
+(defun interactive-update-packages ()
+  "Update packages autonomously, requiring the user to type yes a few times."
   (interactive)
   (list-packages)
   (package-menu-mark-upgrades)
-  (package-menu-execute 10)
-  (keyboard-escape-quit)
+  (package-menu-execute 'no-query)
   (quit-window))
 
 
