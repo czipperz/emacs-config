@@ -109,6 +109,9 @@
 ;; Haskell remove company mode
 (add-hook 'haskell-mode-hook '(lambda () (interactive) (company-mode -1)))
 
+;; Auto insert module declaration for new Haskell files
+(add-hook 'find-file-hook 'auto-insert-module-hs)
+
 ;; Rust
 (add-hook 'rust-mode-hook
           '(lambda ()

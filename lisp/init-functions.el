@@ -229,6 +229,17 @@ Characters are transformed to a string referencing [0]
                       "\n\n\n"))
       (forward-line -1))))
 
+(defun auto-insert-module-hs ()
+  "Auto insert module declaration for Haskell."
+  (interactive)
+  (when (and (stringp buffer-file-name)
+             (string-match "\\.hs\\'" buffer-file-name)
+             (equal (buffer-size) 0))
+    (let ((buf (file-name-nondirectory buffer-file-name)))
+      (insert "module " (substring buf 0 (- (length buf) 3))
+              " where\n\n"))
+    (goto-char (point-max))))
+
 (defun auto-insert-main-c ()
   "Auto insert main function for c/c++."
   (interactive)
