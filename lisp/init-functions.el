@@ -49,6 +49,13 @@ that is not 0.  If ARG is less than 0, it will call comment-region."
         (error (goto-char backup)
                (error (cadr err))))))
 
+(defun doctest (&optional filename)
+  "Run `doctest FILENAME`, displaying outputs in the minibuffer."
+  (interactive)
+  (assert (or filename (setq filename
+                             buffer-file-name)))
+  (shell-command (concat "doctest " filename)))
+
 (defun c++-to-u8 ()
   "Change a character or string at point (or after) to be u8.
 
