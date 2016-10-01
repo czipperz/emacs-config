@@ -271,7 +271,7 @@ Characters are transformed to a string referencing [0]
                 (substring buf 0 (- (length buf) 2))
                 ".h\"\n\n")))))
 
-(defun insert-header-guard-hh ()
+(defun auto-insert-header-guard-hh ()
   "Auto insert header guard for `*.hh' files."
   (interactive)
   (when (and (stringp buffer-file-name)
@@ -286,7 +286,7 @@ Characters are transformed to a string referencing [0]
                 "\n\n\n\n#endif\n")
         (forward-line -3)))))
 
-(defun insert-header-guard-h ()
+(defun auto-insert-header-guard-h ()
   "Auto insert header guard for `*.h' files."
   (interactive)
   (when (and (stringp buffer-file-name)

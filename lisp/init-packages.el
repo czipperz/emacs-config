@@ -52,8 +52,8 @@
 (add-hook 'find-file-hook 'auto-include-header-c)
 
 ;; Auto insert header guard for `*.hh' files.
-(add-hook 'find-file-hook 'insert-header-guard-hh)
-(add-hook 'find-file-hook 'insert-header-guard-h)
+(add-hook 'find-file-hook 'auto-insert-header-guard-hh)
+(add-hook 'find-file-hook 'auto-insert-header-guard-h)
 
 ;; Auto Markdown header
 (add-hook 'find-file-hook 'auto-insert-README.md-header)
