@@ -243,7 +243,7 @@ Characters are transformed to a string referencing [0]
 (defun auto-insert-main-c ()
   "Auto insert main function for c/c++."
   (interactive)
-  (insert "int main(){\n\n}\n")
+  (insert "int main(int argc, char** argv) {\n\n}\n")
   (forward-line -2)
   (indent-for-tab-command))
 
