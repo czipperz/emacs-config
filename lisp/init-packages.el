@@ -107,8 +107,10 @@
                                  '(lambda ()
                                     (interactive)
                                     (insert "\\")))))
+
 ;; begin/end of defun for haskell
 (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
+
 ;; Haskell remove company mode
 (add-hook 'haskell-mode-hook '(lambda () (interactive) (company-mode -1)))
 
