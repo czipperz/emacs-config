@@ -55,6 +55,7 @@
              init-magit-evil-rebase
 
              ;;; Other requires
+             async
              cc-mode
              tramp                      ;ssh
              ;; doxymacs
