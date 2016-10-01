@@ -23,7 +23,7 @@
 (global-set-key (kbd (concat my-prefix " i")) 'indent-for-tab-command)
 (global-set-key (kbd (concat my-prefix " r")) 'align-regexp)
 (global-set-key (kbd (concat my-prefix " s")) 'magit-status)
-(global-set-key (kbd (concat my-prefix " t")) 'term)
+(global-set-key (kbd (concat my-prefix " t")) 'shell)
 (global-set-key (kbd (concat my-prefix " u")) 'uncomment-line)
 (global-set-key (kbd (concat my-prefix " w")) 'whitespace-cleanup)
 
