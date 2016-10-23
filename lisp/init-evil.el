@@ -28,9 +28,6 @@
 (define-key evil-visual-state-map (kbd "C-,") 'find-tag)
 (define-key evil-normal-state-map (kbd "C-,") 'find-tag)
 
-(define-key evil-insert-state-map (kbd "M-A") 'evil-append-line)
-(define-key evil-insert-state-map (kbd "M-I") 'evil-insert-line)
-
 (set 'evil-global-keymaps-alist '((evil-normal-state-minor-mode . evil-normal-state-map)
                                   (evil-insert-state-minor-mode . evil-insert-state-map)
                                   (evil-visual-state-minor-mode . evil-visual-state-map)
