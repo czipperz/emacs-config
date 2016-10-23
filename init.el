@@ -94,7 +94,6 @@
              fill-column-indicator
 
              org
-             evil-org
 
              paredit
              evil-paredit
