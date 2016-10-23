@@ -530,7 +530,7 @@ Ex: with `/' as `sep':
      (set-register ?f "doIt")
      (back-to-indentation)
 
-     (let ((reg (get-region (point) (progn (forward-word) (point)))))
+     (let ((reg (buffer-substring-no-properties (point) (progn (forward-word) (point)))))
        (if (or (equal reg "private")
                (equal reg "public")
                (equal reg "protected"))
@@ -737,13 +737,6 @@ REQUIRES line is all the code."
                      (copy-to-register ?r (mark) (point))
                      (prog1 (get-register ?r)
                        (delete-region (mark) (point))
-                       (set-register ?r reg)))))
-
-(defun get-region (mark point) "Returns what `kill-ring-saved' would output"
-   (interactive (list (mark) (point)))
-   (save-excursion (let ((reg (get-register ?r)))
-                     (copy-to-register ?r mark point)
-                     (prog1 (get-register ?r)
                        (set-register ?r reg)))))
 
 (defun c-prog-sep-semicolon (num)
