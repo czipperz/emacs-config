@@ -101,12 +101,12 @@
     (widen)
     (save-excursion
       (goto-char (point-min))
-      (while (re-search-forward "/[*][*!][^*!]" limit t)
+      (while (re-search-forward "[^/]/[*][*!][^*!]" limit t)
         (let ((start-doc (- (point) 4)))
           (re-search-forward "[*]/")
           (c++-doc-font-lock-keywords start-doc (point))))
       (goto-char (point-min))
-      (while (re-search-forward "//[/!][^/!]" limit t)
+      (while (re-search-forward "[^/]//[/!][^/!]" limit t)
         ;; ensure highlight correct area for `///' lines
         (let ((distance
                (if (bolp)
