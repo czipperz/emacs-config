@@ -7,7 +7,7 @@
 (add-hook 'c++-mode-hook
           '(lambda () (local-set-key (kbd (concat my-prefix " C-c"))
                                      'my/c-comment-region)))
-(global-set-key (kbd (concat my-prefix " C-e")) 'my/end-of-visual-line)
+(global-set-key (kbd (concat my-prefix " C-e")) 'eval-buffer)
 (global-set-key (kbd (concat my-prefix " C-f")) 'ido-find-file)
 (global-set-key (kbd (concat my-prefix " C-m")) 'compile)
 (global-set-key (kbd (concat my-prefix " C-r")) 'my/open-cgrb)
