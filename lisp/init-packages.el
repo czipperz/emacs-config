@@ -1,6 +1,8 @@
 ;; compile packages asynchronously
 (async-bytecomp-package-mode 1)
 
+(setq source-directory "/home/czipperz/Code/emacs/src/")
+
 (set-frame-font "Meslo LG S DZ-11")
 
 ;; save edit place
