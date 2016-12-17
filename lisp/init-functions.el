@@ -376,11 +376,6 @@ Characters are transformed to a string referencing [0]
       (kill-sexp)
       (insert (format "%s" value)))))
 
-(defun my-forward-list (&optional ARG) "Fixes my-forward-list for evil mode"
-   (interactive "^p")
-   (forward-list ARG)
-   (if (eolp) (forward-char)))
-
 
 ;;;###autoload
 (defun cargo-process-fmt ()
