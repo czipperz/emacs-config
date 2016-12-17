@@ -11,6 +11,9 @@
 (global-set-key (kbd (concat my-prefix " C-f")) 'ido-find-file)
 (global-set-key (kbd (concat my-prefix " C-m")) 'compile)
 (global-set-key (kbd (concat my-prefix " C-r")) 'my/open-cgrb)
+(add-hook 'haskell-mode-hook
+          '(lambda () (local-set-key (kbd (concat my-prefix " C-t"))
+                                     'doctest)))
 (global-set-key (kbd (concat my-prefix " C-u")) 'uncomment-region)
 (global-set-key (kbd (concat my-prefix " S")) 'sort-lines)
 (global-set-key (kbd (concat my-prefix " SPC")) 'fix-indentation)
