@@ -467,15 +467,6 @@ Characters are transformed to a string referencing [0]
       (backward-char)))
 
 
-(defun my/beginning-of-buffer () "Goes to the beginning
- of the buffer without moving the mark"
-  (interactive)
-  (goto-char (point-min)))
-(defun my/end-of-buffer () "Goes to the end of the buffer
- without moving the mark"
-  (interactive)
-  (goto-char (point-max)))
-
 
 (defun insert-perl-regexp (sep) "Take variable at point and make it into regexp.
 Place cursor at start of variable (name or `$' works) to use.
