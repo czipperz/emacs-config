@@ -64,11 +64,13 @@
                                   (evil-replace-state-minor-mode . evil-replace-state-map)
                                   (evil-motion-state-minor-mode . evil-motion-state-map)))
 
-;; Package Menu evil keybinds
-(add-hook 'package-menu-mode-hook (lambda () (interactive)
-                                    (local-set-key (kbd "j") 'backward-char)
-                                    (local-set-key (kbd "k") 'forward-line)
-                                    (local-set-key (kbd "l") 'previous-line)
-                                    (local-set-key (kbd ";") 'forward-char)))
+;;; Package Menu evil keybinds
+(defun package-menu-evil ()
+  (interactive)
+  (local-set-key (kbd "j") 'backward-char)
+  (local-set-key (kbd "k") 'forward-line)
+  (local-set-key (kbd "l") 'previous-line)
+  (local-set-key (kbd ";") 'forward-char))
+(add-hook 'package-menu-mode-hook 'package-menu-evil)
 
 (provide 'init-evil)
