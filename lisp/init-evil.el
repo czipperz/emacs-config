@@ -1,5 +1,34 @@
 (evil-mode)
 
+;;; Visual mode end exclusive (rather than inclusive)
+
+;; Make evil visual commands exclusive.  This makes C-x r t work,
+;; FINALLY!  It basically makes evil-visual-commands equate to C-SPC
+;; and C-x SPC this makes using the builtin Emacs commands much
+;; easier.
+;;
+;; Ex: `v C-M-f y` won't grab trailing parenthesis.
+(setq evil-visual-block 'exclusive)
+(setq evil-visual-char 'exclusive)
+
+;; go one farther on forward-word so that visual mode works correctly.
+(defun my/evil-forward-word-end (&optional count bigword)
+  (interactive)
+  (evil-forward-word-end count bigword)
+  (right-char))
+
+(defun my/evil-forward-WORD-end (&optional count)
+  (interactive)
+  (evil-forward-WORD-end count)
+  (right-char))
+
+(define-key evil-normal-state-map "e" 'my/evil-forward-word-end)
+(define-key evil-visual-state-map "e" 'my/evil-forward-word-end)
+(define-key evil-normal-state-map "E" 'my/evil-forward-WORD-end)
+(define-key evil-visual-state-map "E" 'my/evil-forward-WORD-end)
+
+;;; Key bindings
+
 (setq evil-move-beyond-eol t)
 
 (define-key evil-normal-state-map "h" 'evil-repeat-find-char)
