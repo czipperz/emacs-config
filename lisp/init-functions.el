@@ -447,28 +447,31 @@ Characters are transformed to a string referencing [0]
       (comment-region (point) mark))))
 
 
-(defun my/elisp-format-region () (interactive)
-       (elisp-format-region (region-beginning) (region-end))
-       (whitespace-cleanup-region (region-beginning) (region-end)))
+(defun my/elisp-format-region ()
+  "Run `elisp-format-region` then cleanup trailing whitespace."
+  (interactive)
+  (elisp-format-region (region-beginning) (region-end))
+  (whitespace-cleanup-region (region-beginning) (region-end)))
 
-(defun my/capitalize-word () "Upcase only current letter and don't affect others, then move to end of word"
-   (interactive)
-   (if (eq (get-byte) ? ) (forward-whitespace 1))
-   (insert (upcase (get-byte)))
-   (delete-char 1)
-   (backward-char)
-   (forward-word))
+(defun my/capitalize-word ()
+  "Upcase only current letter and don't affect others, then move to end of word."
+  (interactive)
+  (if (eq (get-byte) ? ) (forward-whitespace 1))
+  (insert (upcase (get-byte)))
+  (delete-char 1)
+  (backward-char)
+  (forward-word))
 
-
-(defun my/end-of-visual-line () "Goes to the end of the current line instead of the beginning of the next one"
+(defun my/end-of-visual-line ()
+  "Goes to the end of the current line instead of the beginning of the next one."
   (interactive)
   (end-of-visual-line)
   (if (not word-wrap)
       (backward-char)))
 
 
-
-(defun insert-perl-regexp (sep) "Take variable at point and make it into regexp.
+(defun insert-perl-regexp (sep)
+  "Take variable at point and make it into regexp.
 Place cursor at start of variable (name or `$' works) to use.
 
 ``sep'' is the separator to use.
@@ -505,16 +508,22 @@ Ex: with `/' as `sep':
     (backward-char 4)))
 
 
-(defun create-tags (dir) "Create `ctags' file for a given directory"
+(defun create-tags (dir) "Create `ctags' file for a given directory."
   (interactive "DDirectory: ")
   (shell-command (format "ctags -e -R %s" (directory-file-name dir))))
 (defun er-refresh-etags (&optional extension)
-  "Run etags on all peer files in current dir and reload them silently."
+  "Run etags on all files in the current directory and reload them silently.
+
+If EXTENSION is not nil, run it only on files with the given
+extension (ie `*.EXTENSION')."
   (interactive)
-  (shell-command (if (equal extension nil) "etags -e -R ." (format "etags -e -R *.%s" extension))))
+  (shell-command (if (null extension)
+                     "etags -e -R ."
+                   (format "etags -e -R *.%s" extension))))
 (defadvice find-tag (around refresh-etags activate)
   "Rerun etags and reload tags if tag not found and redo find-tag.
- If buffer is modified, ask about save before running etags"
+
+If buffer is modified, ask about save before running etags."
   (let ((extension (file-name-extension (buffer-file-name))))
     (condition-case err
         ad-do-it
