@@ -13,6 +13,11 @@ This makes the behavior conformant to standard Emacs Commands."
     (set (make-local-variable 'comment-auto-fill-only-comments) t)
     (turn-on-auto-fill)))
 
+(defun dired-this-directory ()
+  "Run dired on the directory of the file currently being edited."
+  (interactive)
+  (dired (file-name-directory buffer-file-name)))
+
 (defun my/open-cgrb ()
   "Open CGRB using find-file and tramp."
   (interactive)

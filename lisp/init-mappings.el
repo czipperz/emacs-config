@@ -155,6 +155,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer-list-buffers)
 (global-set-key (kbd "C-x b")   'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x D") 'dired-this-directory)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 (global-unset-key (kbd "C-x C-z")) ;This would sleep emacs so unbound it
