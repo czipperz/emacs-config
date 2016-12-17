@@ -77,11 +77,7 @@
 (add-hook 'llvm-mode-hook 'demangle-mode)
 
 ;; Comment auto fill
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (set (make-local-variable
-                  'comment-auto-fill-only-comments) t)
-            (auto-fill-mode t)))
+(add-hook 'prog-mode-hook 'turn-on-auto-fill-comments)
 
 ;; Forth files
 (autoload 'forth-mode "gforth.el")

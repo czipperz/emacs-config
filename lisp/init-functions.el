@@ -1,3 +1,8 @@
+(defun turn-on-auto-fill-comments ()
+  (unless (eq major-mode 'haskell-mode)
+    (set (make-local-variable 'comment-auto-fill-only-comments) t)
+    (turn-on-auto-fill)))
+
 (defun my/open-cgrb ()
   "Open CGRB using find-file and tramp."
   (interactive)
