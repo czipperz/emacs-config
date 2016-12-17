@@ -834,37 +834,6 @@ Equivalent to `(async-list-packages t)'."
   (insert-pair arg ?\[ ?\]))
 
 
-(defun my/transpose-chars (arg)
-  "Goes back a character then transposes characters"
-  (interactive "*p")
-  (backward-char)
-  (transpose-subr 'forward-char arg))
-(defun my/transpose-words (arg)
-  (interactive "*p")
-  (backward-word)
-  (transpose-subr 'forward-word arg))
-(defun my/transpose-sexps (arg)
-  (interactive "*p")
-  (backward-sexp)
-  (transpose-subr (lambda (arg)
-                    (if (if (> arg 0)
-                            (looking-at "\\sw\\|\\s_")
-                          (and (not (bobp))
-                               (save-excursion (forward-char -1) (looking-at "\\sw\\|\\s_"))))
-                        (progn (funcall (if (> arg  0)
-                                            'skip-syntax-backward 'skip-syntax-forward))
-                               (cons (save-excursion (forward-sexp arg) (point)) (point)))
-                      (funcall (if (> arg 0) 'skip-syntax-backward 'skip-syntax-forward) " .")
-                      (cons (save-excursion (forward-sexp arg) (point))
-                            (progn (while (or (forward-comment (if (> arg 0) 1 -1))
-                                              (not (zerop (funcall (if (> arg 0)
-                                                                       'skip-syntax-forward
-                                                                     'skip-syntax-backward)
-                                                                   ".")))))
-                                   (point)))))
-                  arg 'special))
-
-
 (defun forward-find (char)
   "Goes forward until ``(eq (get-byte) char)''
 Will move point forward one character before testing.
