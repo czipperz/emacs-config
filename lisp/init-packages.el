@@ -157,9 +157,6 @@
 (add-hook 'haskell-mode-hook 'turn-off-fci-mode)
 (add-hook 'help-mode-hook 'turn-off-fci-mode)
 
-;; evil org mode
-(add-hook 'org-mode-hook 'evil-org-mode)
-
 ;; Fill code
 (add-hook 'c-mode-common-hook 'fillcode-mode)
 (add-hook 'perl-mode-hook 'fillcode-mode)
