@@ -1,3 +1,13 @@
+(defun my/clang-format (start end &optional style)
+  "Move END back a character, then run `clang-format-region'.
+
+This makes the behavior conformant to standard Emacs Commands."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point) (point))))
+  (clang-format start (if (= start end) end (1- end)) style))
+
 (defun turn-on-auto-fill-comments ()
   (unless (eq major-mode 'haskell-mode)
     (set (make-local-variable 'comment-auto-fill-only-comments) t)

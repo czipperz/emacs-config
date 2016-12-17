@@ -161,10 +161,10 @@
 
 (add-hook 'c-mode-hook
           '(lambda ()
-             (local-set-key [C-M-tab] 'clang-format)))
+             (local-set-key [C-M-tab] 'my/clang-format)))
 (add-hook 'c++-mode-hook
           '(lambda ()
-             (local-set-key [C-M-tab] 'clang-format)))
+             (local-set-key [C-M-tab] 'my/clang-format)))
 (add-hook 'emacs-lisp-mode-hook
           '(lambda ()
              (local-set-key [C-M-tab] 'my/elisp-format-region)))
