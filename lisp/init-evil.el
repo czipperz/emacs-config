@@ -70,7 +70,9 @@
   (local-set-key (kbd "j") 'backward-char)
   (local-set-key (kbd "k") 'forward-line)
   (local-set-key (kbd "l") 'previous-line)
-  (local-set-key (kbd ";") 'forward-char))
+  (local-set-key (kbd ";") 'forward-char)
+  (local-set-key (kbd "/") 'evil-search-forward)
+  (local-set-key (kbd "?") 'evil-search-backward))
 (add-hook 'package-menu-mode-hook 'package-menu-evil)
 
 (provide 'init-evil)
