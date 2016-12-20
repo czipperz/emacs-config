@@ -103,7 +103,7 @@
                                         ;and different types of both
 
              init-packages              ;init scripts
-             )) (require i))
+             )) (condition-case nil (require i) (error "FAILED to require %s" i)))
 
 (put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
