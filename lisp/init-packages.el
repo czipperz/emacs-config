@@ -1,6 +1,15 @@
 ;; compile packages asynchronously
 (async-bytecomp-package-mode 1)
 
+(defun play-bell-sound ()
+  (ignore-errors
+    (sound-wav-play "/home/czipperz/.emacs.d/sounds/bell.wav")))
+
+(defadvice yes-or-no-p (before ring-bell activate)
+  (play-bell-sound))
+(defadvice y-or-n-p (before ring-bell activate)
+  (play-bell-sound))
+
 (setq source-directory "/home/czipperz/Code/emacs/src/")
 
 (set-frame-font "Meslo LG S DZ-11")

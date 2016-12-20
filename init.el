@@ -55,6 +55,7 @@
              init-magit-evil-rebase
 
              ;;; Other requires
+             sound-wav
              async
              cc-mode
              tramp                      ;ssh
