@@ -41,8 +41,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(dolist (i '(;; darcula-theme		;Minimize white time
-             evil
+(dolist (i '(evil
              init-evil
              powerline
              init-extra-cedit-functions
