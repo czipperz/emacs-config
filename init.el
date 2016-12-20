@@ -56,6 +56,7 @@
 
              ;;; Other requires
              sound-wav
+             ag
              async
              cc-mode
              tramp                      ;ssh
