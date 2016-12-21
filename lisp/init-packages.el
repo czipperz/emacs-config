@@ -9,6 +9,8 @@
   (play-bell-sound))
 (defadvice y-or-n-p (before ring-bell activate)
   (play-bell-sound))
+(defadvice package-menu-execute (after ring-bell activate)
+  (play-bell-sound))
 
 (setq source-directory "/home/czipperz/Code/emacs/src/")
 
