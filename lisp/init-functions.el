@@ -1,3 +1,13 @@
+(defun wrap-prettyprint-code (start end)
+  "Wrap the region with a HTML code block with the class \"prettyprint\"."
+  (interactive (if (region-active-p)
+                   (list (region-beginning) (region-end))
+                 (error "Must be selecting a region to wrap")))
+  (goto-char start)
+  (insert "<code class=\"prettyprint\">")
+  (forward-char (- end start))
+  (insert "</code>"))
+
 (defun my/clang-format (start end &optional style)
   "Move END back a character, then run `clang-format-region'.
 
