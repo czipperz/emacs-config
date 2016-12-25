@@ -148,7 +148,7 @@ the result (which will translate to `/sudo:USERNAME@localhost:')."
 
 This will transfer into the new file, just like `write-file', and
 future saves will also use USER."
-  (interactive "bWrite file: \nsUser to save as: ")
+  (interactive "FWrite file: \nsUser to save as: ")
   (write-file (replace-tramp-username filename user)))
 
 (defun sudo-write-file (filename)
@@ -156,7 +156,7 @@ future saves will also use USER."
 
 This will transfer into the new file, just like `write-file', and
 future saves will also use root."
-  (interactive "bWrite file: ")
+  (interactive "FWrite file: ")
   (write-file-as-user filename "sudo"))
 
 ;; (defun save-buffer-as-user (user)
