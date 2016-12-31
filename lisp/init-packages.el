@@ -15,6 +15,7 @@
   (play-bell-sound))
 
 (setq source-directory "/home/czipperz/Code/emacs/src/")
+(setq mail-host-address "gmail.com")
 
 (set-frame-font "Meslo LG S DZ-11")
 
