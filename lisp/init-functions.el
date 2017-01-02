@@ -485,7 +485,7 @@ Place cursor at start of variable (name or `$' works) to use.
 
 ``sep'' is the separator to use.
 
-It will be chosen from ``;/|,.*&^%!@#$)'', default is ``.''
+It will be chosen from ``;/|,.*&^%!@#$)'', default is ``|''
 
 Ex: with `/' as `sep':
 
@@ -493,28 +493,17 @@ Ex: with `/' as `sep':
     ``M-x insert-perl-regexp''
     $(echo \"$xs\" | perl -pe 's/<cur>//')"
   (interactive "cSeperator:")
-  (let ((s (pcase sep
-             (59 ";")
-             (47 "/")
-             (124 "|")
-             (44 ",")
-             (46 ".")
-             (42 "*")
-             (38 "&")
-             (94 "^")
-             (37 "%")
-             (33 "!")
-             (64 "@")
-             (35 "#")
-             (36 "$")
-             (41 ")")
-             (t "."))))
-    (if (eq (get-byte) 36) (forward-char) nil) ;$
-    (insert "(echo \"$")
-    (forward-word) (while (eq (get-byte) 95) (forward-word) nil) ;_
-    (insert "\" | perl -pe 's")
-    (insert (format "%s%s%s')" s s s))
-    (backward-char 4)))
+  (pcase sep
+    ((or ?\; ?/ ?| ?\, ?. ?* ?& ?^ ?% ?! ?@ ?#?$ ?\)))
+    (_ (setq sep ?|)))
+  (when (eq (get-byte) ?$)
+    (forward-char))
+  (insert "(echo \"$")
+  (forward-word)
+  (while (eq (get-byte) ?_)
+    (forward-word))
+  (insert "\" | perl -pe 's" sep sep sep "')")
+  (backward-char 4))
 
 
 (defun create-tags (dir) "Create `ctags' file for a given directory."
