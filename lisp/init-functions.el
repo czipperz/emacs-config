@@ -765,12 +765,12 @@ REQUIRES line is all the code."
 
 (defun c-prog-sep-semicolon (num)
   (interactive "p")
-  (cond ((eq num 0))
-        (t  (back-to-indentation)
-            (while (/= (char-before) ?\;)
-              (forward-char))
-            (newline-and-indent)
-            (c-prog-sep-semicolon (1- num)))))
+  (while (not (eq num 0))
+    (back-to-indentation)
+    (while (/= (char-before) ?\;)
+      (forward-char))
+    (newline-and-indent)
+    (decf num)))
 
 
 
