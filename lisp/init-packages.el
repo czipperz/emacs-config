@@ -65,6 +65,8 @@
 
 ;; Default to c++11
 (setq-default flycheck-clang-language-standard "c++11")
+(with-current-buffer (get-buffer-create "*Shell Command Output*")
+  (local-set-key (kbd "q") 'quit-window))
 
 ;; Auto include for `*.cc' and `*.c' files, auto insert main function
 ;; for `main.c' or `main.cc'
