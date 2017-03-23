@@ -64,7 +64,7 @@
       c-default-style "stroustrup")
 
 ;; Default to c++11
-(add-hook 'c++-mode-hook (lambda () (setq flycheck-clang-language-standard "c++11")))
+(setq-default flycheck-clang-language-standard "c++11")
 
 ;; Auto include for `*.cc' and `*.c' files, auto insert main function
 ;; for `main.c' or `main.cc'
