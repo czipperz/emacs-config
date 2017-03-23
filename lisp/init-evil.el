@@ -29,6 +29,24 @@
 (define-key evil-normal-state-map "E" 'my/evil-forward-WORD-end)
 (define-key evil-visual-state-map "E" 'my/evil-forward-WORD-end)
 
+;; go one farther on backward-word so that visual mode works correctly.
+(defun my/evil-backward-word-end (&optional count bigword)
+  (interactive)
+  (left-char)
+  (evil-backward-word-end count bigword)
+  (right-char))
+
+(defun my/evil-backward-WORD-end (&optional count)
+  (interactive)
+  (left-char)
+  (evil-backward-WORD-end count)
+  (right-char))
+
+(define-key evil-normal-state-map "ge" 'my/evil-backward-word-end)
+(define-key evil-visual-state-map "ge" 'my/evil-backward-word-end)
+(define-key evil-normal-state-map "gE" 'my/evil-backward-WORD-end)
+(define-key evil-visual-state-map "gE" 'my/evil-backward-WORD-end)
+
 ;;; Key bindings
 
 (setq evil-move-beyond-eol t)
