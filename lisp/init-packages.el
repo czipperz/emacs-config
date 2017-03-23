@@ -13,6 +13,8 @@
   (play-bell-sound))
 (defadvice list-packages (after ring-bell activate)
   (play-bell-sound))
+(defadvice magit-git-push (after ring-bell activate)
+  (play-bell-sound))
 
 (setq source-directory "/home/czipperz/Code/emacs/src/")
 (setq mail-host-address "gmail.com")
