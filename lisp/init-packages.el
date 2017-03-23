@@ -59,12 +59,6 @@
 ;; Fringe style for graphical mode
 (set-fringe-style 0)
 
-;; 4 spaces for c languages
-(setq c-basic-offset 4
-      c-default-style "stroustrup")
-
-;; Default to c++11
-(setq-default flycheck-clang-language-standard "c++11")
 (with-current-buffer (get-buffer-create "*Shell Command Output*")
   (local-set-key (kbd "q") 'quit-window))
 
@@ -83,9 +77,21 @@
 ;; globally enable multiple cursors
 (global-evil-mc-mode 1)
 
-(c-set-offset 'case-label '+)
+;; Default to c++11
+(setq-default flycheck-clang-language-standard "c++11")
+(add-hook 'c-mode-hook (lambda ()
+                         (setq-local flycheck-clang-language-standard
+                                     "c89")))
+
+;; 4 spaces for c languages
+(setq-default c-basic-offset 4)
+(setq c-default-style '((awk-mode . "awk")
+                        (other . "java")))
+
+;; `namespace's have no indentation
 (c-set-offset 'innamespace 0)
-;; cwarn to check for errors
+(c-set-offset 'label (vector 0))
+;; `cwarn' to check for errors
 (add-hook 'c-mode-hook 'cwarn-mode)
 (add-hook 'c++-mode-hook 'cwarn-mode)
 ;; Preprocessor highlighting
