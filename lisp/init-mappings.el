@@ -202,6 +202,11 @@
 (global-set-key (kbd "C-`") 'list-packages) ; note that this doesn't work in shells because they are dumb
 (global-set-key (kbd "C-~") 'interactive-update-packages)
 
+(add-hook 'paredit-mode-hook
+          '(lambda () (if (eql 'haskell-mode major-mode)
+                          (local-set-key (kbd "C-)")
+                                         'haskell-forward-slurp-sexp))))
+
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-x C-M-h") 'backward-kill-word)
