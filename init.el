@@ -37,6 +37,8 @@
 
 (load-theme 'solarized-dark) ; load theme here
 
+(add-to-list 'default-frame-alist '(alpha 90 80))
+
 ;; Hide menubar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
