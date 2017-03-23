@@ -14,11 +14,13 @@
 ;; go one farther on forward-word so that visual mode works correctly.
 (defun my/evil-forward-word-end (&optional count bigword)
   (interactive)
+  (left-char)
   (evil-forward-word-end count bigword)
   (right-char))
 
 (defun my/evil-forward-WORD-end (&optional count)
   (interactive)
+  (left-char)
   (evil-forward-WORD-end count)
   (right-char))
 
