@@ -95,4 +95,8 @@
   (local-set-key (kbd "?") 'evil-search-backward))
 (add-hook 'package-menu-mode-hook 'package-menu-evil)
 
+(define-key evil-insert-state-map (kbd "C-;") (lambda () (interactive)))
+(define-key evil-normal-state-map (kbd "C-;") (lambda () (interactive)))
+(define-key evil-visual-state-map (kbd "C-;") (lambda () (interactive)))
+
 (provide 'init-evil)
