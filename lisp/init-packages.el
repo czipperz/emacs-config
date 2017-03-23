@@ -114,6 +114,12 @@
 ;; elisp-format
 (set 'elisp-format-column fill-column)
 
+;; Calc fix tab
+(add-hook 'calc-mode-hook '(lambda ()
+                             (interactive)
+                             (local-set-key "\C-i" 'calc-roll-down)
+                             (local-set-key "\C-\M-i" 'calc-roll-up)))
+
 ;; Haskell indentation
 (add-hook 'haskell-mode-hook 'turn-on-hi2)
 
