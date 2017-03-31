@@ -117,6 +117,12 @@
           (c++-doc-font-lock-keywords (- (point) distance)
                                       (point-at-eol)))))))
 
+(add-hook 'c-mode-hook
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '((c++-doc-font-lock-fun (0 font-lock-doc-face prepend)))
+             'add-to-end)))
 (add-hook 'c++-mode-hook
           (lambda ()
             (font-lock-add-keywords
