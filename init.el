@@ -60,6 +60,7 @@
              ag
              async
              cc-mode
+             cmake-ide
              tramp                      ;ssh
              ;; doxymacs
              expand-region
