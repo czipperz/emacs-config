@@ -83,11 +83,6 @@
 
 (global-set-key (kbd "M-g C-c") 'print-point)
 
-(global-unset-key (kbd "C-l"))
-
-(global-set-key (kbd "C-l m") 'license/mpl-header)
-(global-set-key (kbd "C-l p") 'license/public-domain-header)
-
 (setq evil-mc-key-map
   (let ((map (make-sparse-keymap))
         (keys (list (cons "m" 'evil-mc-make-all-cursors)
