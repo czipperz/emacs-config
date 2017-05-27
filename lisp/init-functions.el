@@ -310,9 +310,16 @@ Characters are transformed to a string referencing [0]
       (let ((i (concat (substring (upcase buf) 0
                                   (- (length buf) 3))
                        "_H")))
-        (insert "#ifndef HEADER_GUARD_" i
-                "\n#define HEADER_GUARD_" i
-                "\n\n\n\n#endif\n")
+        (insert (format "#pragma once
+
+#ifndef HEADER_GUARD_%s
+#define HEADER_GUARD_%s
+
+
+
+#endif
+"
+                        i i))
         (forward-line -3)))))
 
 (defun auto-insert-header-guard-h ()
@@ -325,10 +332,25 @@ Characters are transformed to a string referencing [0]
       (let ((i (concat (substring (upcase buf) 0
                                   (- (length buf) 2))
                        "_H")))
-        (insert "#ifndef HEADER_GUARD_" i
-                "\n#define HEADER_GUARD_" i
-                "\n\n\n\n#endif\n")
-        (forward-line -3)))))
+        (insert (format "#pragma once
+
+#ifndef HEADER_GUARD_%s
+#define HEADER_GUARD_%s
+
+#ifdef __cplusplus
+extern \"C\" {
+#endif
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+"
+                        i i))
+        (forward-line -7)))))
 
 
 (defun license/public-domain-header ()
