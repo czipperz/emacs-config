@@ -16,7 +16,9 @@
 (defadvice magit-git-push (after ring-bell activate)
   (play-bell-sound))
 
-(setq source-directory "/home/czipperz/Code/emacs/src/")
+(require 'find-func)
+(setq source-directory "/home/czipperz/Code/emacs/src")
+(setq find-function-C-source-directory source-directory)
 (setq mail-host-address "gmail.com")
 
 (set-frame-font "Meslo LG S DZ-11")
