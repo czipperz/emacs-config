@@ -1,0 +1,11 @@
+(require 'cc-mode)
+(require 'clang-format)
+(require 'cmake-ide)
+(require 'cmake-mode)
+
+(setq-default c-basic-offset 4)
+(setq-default indent-tabs-mode nil)
+(setq c-default-style '((awk-mode . "awk")
+			(other . "java")))
+;; (require 'rtags)
+(cmake-ide-setup)
