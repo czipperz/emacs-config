@@ -5,6 +5,7 @@
 (define-key paredit-mode-map (kbd "C-j") nil)
 (define-key paredit-mode-map (kbd "C-M-p") nil)
 (define-key paredit-mode-map (kbd "C-M-n") nil)
+(global-set-key [remap backward-up-list] #'paredit-backward-up)
 
 (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
