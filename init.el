@@ -21,7 +21,8 @@
     (ivy counsel counsel-projectile swiper "evil" "kfg" kfg magit ag fill-column-indicator undo-tree paredit helm-projectile git-commit flycheck edit-server company-cmake cmake-mode cmake-ide clang-format ace-window)))
  '(safe-local-variable-values
    (quote
-    ((eval let
+    ((c-noise-macro-names "UNINIT")
+     (eval let
            ((dl
              (dir-locals-find-file buffer-file-name)))
            (setq dl
