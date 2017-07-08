@@ -6,6 +6,7 @@
 (load-theme 'wombat)
 
 (unless (require 'kfg nil t)
+  (package-refresh-contents)
   (package-install 'kfg))
 
 (kfg-find-and-activate-modules "~/.emacs.d/modules")
