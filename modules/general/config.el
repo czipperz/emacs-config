@@ -18,3 +18,8 @@
 (put 'Info-edit 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(setq-default truncate-lines nil)
+(setq-default word-wrap t)
+(setq-default truncate-partial-width-windows nil)
+(global-visual-line-mode)
