@@ -4,7 +4,8 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-h") #'delete-backward-char)
+(global-set-key (kbd "C-x R") #'redraw-display)
 
 (setq vc-follow-symlinks t)
 (setq enable-recursive-minibuffers t)
