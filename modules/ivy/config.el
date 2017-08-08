@@ -7,7 +7,7 @@
 (global-set-key (kbd "C-r") #'swiper)
 (global-set-key (kbd "C-c C-r") #'ivy-resume)
 (global-set-key (kbd "<f1> u") #'counsel-unicode-char)
-(global-set-key (kbd "C-c s") #'counsel-ag)
+(global-set-key (kbd "C-c S") #'counsel-ag)
 (global-set-key (kbd "C-M-j") #'counsel-company)
 (global-set-key [remap execute-extended-command] #'counsel-M-x)
 (global-set-key [remap find-file] #'counsel-find-file)
