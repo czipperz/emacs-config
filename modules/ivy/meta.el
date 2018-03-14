@@ -1,2 +1,2 @@
 '((:enabled . t)
-  (:packages ivy counsel swiper))
+  (:packages ivy counsel swiper counsel-projectile))

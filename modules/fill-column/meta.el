@@ -1,2 +1,2 @@
-'((:enabled . t)
+'((:enabled . nil)
   (:packages fill-column-indicator))

@@ -18,7 +18,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ivy counsel counsel-projectile swiper "evil" "kfg" kfg magit ag fill-column-indicator undo-tree paredit helm-projectile git-commit flycheck edit-server company-cmake cmake-mode cmake-ide clang-format ace-window)))
+    (narrow-indirect graphviz-dot-mode rust-mode ivy counsel counsel-projectile swiper "evil" "kfg" kfg magit ag fill-column-indicator undo-tree paredit helm-projectile git-commit flycheck edit-server company-cmake cmake-mode cmake-ide clang-format ace-window)))
  '(safe-local-variable-values
    (quote
     ((c-noise-macro-names "UNINIT")

@@ -1,8 +1,10 @@
 (require 'ivy)
 (require 'swiper)
 (require 'counsel)
+(require 'counsel-projectile)
 
 (ivy-mode 1)
+(counsel-projectile-mode)
 (global-set-key (kbd "C-s") #'swiper)
 (global-set-key (kbd "C-r") #'swiper)
 (global-set-key (kbd "C-c C-r") #'ivy-resume)
