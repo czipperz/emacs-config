@@ -30,6 +30,6 @@
 (setq-default truncate-lines nil)
 (setq-default word-wrap nil)
 (setq-default truncate-partial-width-windows nil)
-(global-visual-line-mode)
+;;(global-visual-line-mode)
 
 (global-set-key (kbd "C-c RET") #'compile)
