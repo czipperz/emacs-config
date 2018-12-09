@@ -1,3 +1,5 @@
+(require 'tex)
+
 (define-key TeX-mode-map (kbd "C-c C-m") #'tex-command-show-pdf)
 
 (defun tex-command-show-pdf ()
