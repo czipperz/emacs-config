@@ -9,6 +9,7 @@
   (package-refresh-contents)
   (package-install 'kfg))
 
+(push (concat (getenv "HOME") "/.emacs.d/modules/narrow-indirect") load-path)
 (kfg-find-and-activate-modules "~/.emacs.d/modules")
 
 (custom-set-variables

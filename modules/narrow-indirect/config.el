@@ -37,4 +37,3 @@
 (global-set-key (kbd "C-x n d") #'ni-narrow-to-defun-indirect)
 (global-set-key (kbd "C-x n p") #'ni-narrow-to-page-indirect)
 ;; (global-set-key (kbd "C-x n w") #'ni-widen-indirect)
-
