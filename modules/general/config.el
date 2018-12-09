@@ -32,4 +32,6 @@
 (setq-default truncate-partial-width-windows nil)
 ;;(global-visual-line-mode)
 
+(setq column-number-mode t)
+
 (global-set-key (kbd "C-c RET") #'compile)
