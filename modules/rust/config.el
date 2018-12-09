@@ -7,3 +7,6 @@
 
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'rust-mode-hook #'turn-off-flycheck-mode)
+
+(defun turn-off-flycheck-mode () (flycheck-mode 0))
