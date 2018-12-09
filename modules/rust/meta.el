@@ -1,2 +1,2 @@
 '((:enabled . t)
-  (:packages rust-mode))
+  (:packages rust-mode racer))
