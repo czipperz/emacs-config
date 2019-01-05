@@ -7,14 +7,19 @@
         LaTeX-insert-left-brace
         TeX-insert-backslash
         TeX-newline
+        backward-sentence
         backward-sexp
         c-electric-brace
         c-electric-delete-forward
         c-electric-paren
+        c-electric-semi&comma
+        c-electric-slash
+        c-electric-star
         delete-horizontal-space
         delete-indentation
         downcase-region
         end-of-visual-line
+        fill-paragraph
         forward-sexp
         indent-for-tab-command
         kill-region
@@ -28,4 +33,6 @@
       '(
         compile
         counsel-M-x
+        kmacro-end-macro
+        scroll-other-window
         ))
