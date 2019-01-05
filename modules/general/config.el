@@ -35,3 +35,6 @@
 (setq column-number-mode t)
 
 (global-set-key (kbd "C-c RET") #'compile)
+
+(global-auto-revert-mode)
+(setq auto-revert-verbose nil)
