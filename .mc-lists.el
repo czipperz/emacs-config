@@ -15,13 +15,17 @@
         c-electric-semi&comma
         c-electric-slash
         c-electric-star
+        c-indent-line-or-region
+        dabbrev-expand
         delete-horizontal-space
         delete-indentation
         downcase-region
+        end-of-buffer
         end-of-visual-line
         fill-paragraph
         forward-sexp
         indent-for-tab-command
+        insert-register
         kill-region
         paredit-backward-up
         paredit-forward
