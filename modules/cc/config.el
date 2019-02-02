@@ -1,7 +1,8 @@
 (require 'cc-mode)
 (require 'clang-format)
-(require 'cmake-ide)
+;; (require 'cmake-ide)
 (require 'cmake-mode)
+(require 'cpputils-cmake)
 
 (setq-default c-basic-offset 4)
 (setq-default indent-tabs-mode nil)
@@ -13,7 +14,18 @@
 (c-set-offset 'topmost-intro-cont 0)
 (setq-default c-offsets-alist c-offsets-alist)
 ;; (require 'rtags)
-(cmake-ide-setup)
+;; (cmake-ide-setup)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (if (derived-mode-p 'c-mode 'c++-mode)
+                (cppcm-reload-all))))
+(setq cppcm-write-flymake-makefile nil)
+
+(require 'counsel-etags)
+(define-key c-mode-map (kbd "M-.") #'counsel-etags-find-tag-at-point)
+(define-key c++-mode-map (kbd "M-.") #'counsel-etags-find-tag-at-point)
+(define-key c-mode-map (kbd "C-.") #'counsel-etags-find-tag)
+(define-key c++-mode-map (kbd "C-.") #'counsel-etags-find-tag)
 
 (defun auto-insert-main-c ()
   "Auto insert main function for c/c++."
