@@ -38,3 +38,12 @@
 
 (global-auto-revert-mode)
 (setq auto-revert-verbose nil)
+
+(defun sudo-save ()
+  "Use Tramp to save this file using sudo."
+  (interactive)
+  (write-file (concat "/sudo:root@localhost:"
+                      (if buffer-file-name
+                          buffer-file-name
+                        (read-file-name "Sudo write file: ")))))
+(global-set-key (kbd "C-x w") #'sudo-save)
