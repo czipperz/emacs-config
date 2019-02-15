@@ -24,13 +24,23 @@
         end-of-visual-line
         fill-paragraph
         forward-sexp
+        haskell-delete-indentation
+        haskell-indentation-common-electric-command
+        haskell-indentation-newline-and-indent
         indent-for-tab-command
         insert-register
         kill-region
+        paredit-backward
         paredit-backward-up
+        paredit-doublequote
         paredit-forward
         paredit-forward-delete
+        paredit-forward-kill-word
+        paredit-forward-slurp-sexp
+        paredit-kill
         paredit-open-round
+        paredit-wrap-round
+        transpose-sexps
         ))
 
 (setq mc/cmds-to-run-once
