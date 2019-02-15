@@ -1,2 +1,2 @@
 '((:enabled . t)
-  (:packages magit))
+  (:packages magit magit-filenotify))
