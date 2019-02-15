@@ -27,6 +27,9 @@
 (define-key c-mode-map (kbd "C-.") #'counsel-etags-find-tag)
 (define-key c++-mode-map (kbd "C-.") #'counsel-etags-find-tag)
 
+(define-key c-mode-map (kbd "C-c C-f") #'clang-format-buffer)
+(define-key c++-mode-map (kbd "C-c C-f") #'clang-format-buffer)
+
 (defun auto-insert-main-c ()
   "Auto insert main function for c/c++."
   (interactive)
