@@ -10,8 +10,6 @@
     (delete-other-windows)
     (split-window-right)
     (other-window 1)
-    (condition-case nil
-        (switch-to-buffer (concat (file-name-sans-extension (buffer-name)) ".pdf"))
-      (error (find-file fname)))
+    (find-file fname)
     (revert-buffer t t t)
     (other-window -1)))
