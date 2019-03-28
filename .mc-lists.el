@@ -9,7 +9,9 @@
         TeX-newline
         backward-sentence
         backward-sexp
+        beginning-of-defun
         c-electric-brace
+        c-electric-colon
         c-electric-delete-forward
         c-electric-paren
         c-electric-semi&comma
@@ -30,6 +32,8 @@
         indent-for-tab-command
         insert-register
         kill-region
+        mark-defun
+        org-self-insert-command
         paredit-backward
         paredit-backward-up
         paredit-doublequote
@@ -40,6 +44,7 @@
         paredit-kill
         paredit-open-round
         paredit-wrap-round
+        phi-replace-query
         transpose-sexps
         ))
 
@@ -47,6 +52,7 @@
       '(
         compile
         counsel-M-x
+        describe-key-briefly
         kmacro-end-macro
         scroll-other-window
         ))
