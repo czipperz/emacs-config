@@ -33,6 +33,7 @@
 ;;(global-visual-line-mode)
 
 (setq column-number-mode t)
+(setq-default fill-column 80)
 
 (global-set-key (kbd "C-c RET") #'compile)
 
