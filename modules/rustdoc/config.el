@@ -72,7 +72,8 @@
     (poly-markdown-mode)
 
     (setq-local asf--rustdoc-prefix prefix)
-    (setq-local edit-indirect-before-commit-hook '(asf--rustdoc-apply-prefix))))
+    (setq-local edit-indirect-before-commit-hook '(asf--rustdoc-apply-prefix))
+    (setq-local polymode-default-inner-mode 'rust-mode)))
 
 (defun asf-rustdoc-edit ()
   (interactive)
