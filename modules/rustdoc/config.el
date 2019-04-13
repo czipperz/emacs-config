@@ -69,6 +69,7 @@
   ;; Strip the comment prefix from lines & set up the buffer's major mode:
   (let ((prefix (asf--rustdoc-strip-prefix)))
     (markdown-mode)
+    (poly-markdown-mode)
 
     (setq-local asf--rustdoc-prefix prefix)
     (setq-local edit-indirect-before-commit-hook '(asf--rustdoc-apply-prefix))))
