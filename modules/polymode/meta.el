@@ -1,2 +1,2 @@
 '((:enabled . t)
-  (:packages polymode poly-org poly-markdown))
+  (:packages polymode poly-org))
