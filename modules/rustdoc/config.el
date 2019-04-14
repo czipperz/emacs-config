@@ -1,5 +1,6 @@
-;; Copyright Andreas Fuchs 2019
-;; Copyright Chris Gregory 2019
+;;; Copyright (C) 2018, 2019 Andreas Fuchs <asf@boinkor.net>
+;;; Copyright (C) 2019 Chris Gregory <czipperz AT gmail DOT com>
+;;; Made available to you under the terms of GPLv2 or later: https://choosealicense.com/licenses/gpl-2.0/
 
 (require 'edit-indirect)
 (require 'cl)
