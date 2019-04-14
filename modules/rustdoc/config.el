@@ -85,6 +85,4 @@
       (let ((edit-indirect-after-creation-hook 'asf--rustdoc-setup-buffer))
         (edit-indirect-region start end t)))))
 
-(add-hook 'rust-mode-hook
-          (defun asf--rustdoc-setup-hook ()
-            (define-key rust-mode-map (kbd "C-c '") 'asf-rustdoc-edit)))
+(define-key rust-mode-map (kbd "C-c '") 'asf-rustdoc-edit)
