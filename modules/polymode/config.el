@@ -58,16 +58,10 @@
   :head-mode 'host
   :tail-mode 'host)
 
-(define-auto-innermode poly-markdown-fenced-code-named-innermode
-  :head-matcher (cons "^[ \t]*\\(```{?[[:alpha:]].*\n\\)" 1)
-  :tail-matcher (cons "^[ \t]*\\(```\\)[ \t]*$" 1)
+(define-auto-innermode poly-markdown-fenced-code-innermode
+  :head-matcher (pm-make-text-property-matcher 'markdown-gfm-block-begin)
+  :tail-matcher (pm-make-text-property-matcher 'markdown-gfm-block-end)
   :mode-matcher (cons "```[ \t]*{?\\(?:lang *= *\\)?\\([^ \t\n;=,}]+\\)" 1)
-  :head-mode 'host
-  :tail-mode 'host)
-
-(define-innermode poly-markdown-fenced-code-unnamed-innermode
-  :head-matcher (cons "^\n[ \t]*\\(```\n\\)" 1)
-  :tail-matcher (cons "^[ \t]*\\(```\\)[ \t]*$" 1)
   :head-mode 'host
   :tail-mode 'host)
 
@@ -135,8 +129,7 @@ character."
 ;;;###autoload  (autoload 'poly-markdown-mode "poly-markdown")
 (define-polymode poly-markdown-mode
   :hostmode 'poly-markdown-hostmode
-  :innermodes '(poly-markdown-fenced-code-named-innermode
-                poly-markdown-fenced-code-unnamed-innermode
+  :innermodes '(poly-markdown-fenced-code-innermode
                 poly-markdown-inline-code-innermode
                 poly-markdown-displayed-math-innermode
                 poly-markdown-inline-math-innermode
