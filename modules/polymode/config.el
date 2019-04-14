@@ -136,7 +136,7 @@ character."
                 poly-markdown-yaml-metadata-innermode))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.md\\'" . poly-markdown-mode))
+(add-hook 'markdown-mode-hook #'poly-markdown-mode)
 
 ;;; FIXES:
 (defun poly-markdown-remove-markdown-hooks (_)
