@@ -65,10 +65,9 @@
   :head-mode 'host
   :tail-mode 'host)
 
-(define-auto-innermode poly-markdown-fenced-code-unnamed-innermode
+(define-innermode poly-markdown-fenced-code-unnamed-innermode
   :head-matcher (cons "^\n[ \t]*\\(```\n\\)" 1)
   :tail-matcher (cons "^[ \t]*\\(```\\)[ \t]*$" 1)
-  :mode-matcher (cons "```[ \t]*{?\\(?:lang *= *\\)?\\([^ \t\n;=,}]+\\)" 1)
   :head-mode 'host
   :tail-mode 'host)
 
