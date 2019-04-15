@@ -63,7 +63,8 @@
   :tail-matcher (pm-make-text-property-matcher 'markdown-yaml-metadata-end))
 
 (define-auto-innermode poly-markdown-fenced-code-innermode poly-markdown-root-innermode
-  :head-matcher (pm-make-text-property-matcher 'markdown-gfm-block-begin)
+  :head-matcher (pm-make-text-property-matcher 'markdown-gfm-block-begin
+                                               #'poly-markdown-fenced-code-begin-accessor)
   :tail-matcher (pm-make-text-property-matcher 'markdown-gfm-block-end)
   :mode-matcher (cons "```[ \t]*{?\\(?:lang *= *\\)?\\([^ \t\n;=,}]+\\)" 1))
 
@@ -71,6 +72,12 @@
   :head-matcher (cons "[^`]\\(`\\)[[:alnum:]([{&*+-]" 1)
   :tail-matcher (cons "\\(`\\)[^`]" 1)
   :allow-nested nil)
+
+(defun poly-markdown-fenced-code-begin-accessor (val)
+  (cons (point)
+        (1+ (next-single-property-change
+             (point) 'markdown-gfm-block-begin
+             nil (point-max)))))
 
 (defun poly-markdown-displayed-math-head-matcher (count)
   (when (re-search-forward "\\\\\\[\\|^[ \t]*\\(\\$\\$\\)." nil t count)
