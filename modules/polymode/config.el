@@ -67,7 +67,7 @@
   :tail-matcher (pm-make-text-property-matcher 'markdown-gfm-block-end)
   :mode-matcher (cons "```[ \t]*{?\\(?:lang *= *\\)?\\([^ \t\n;=,}]+\\)" 1))
 
-(define-innermode poly-markdown-inline-code-innermode
+(define-innermode poly-markdown-inline-code-innermode poly-markdown-root-innermode
   :head-matcher (cons "[^`]\\(`\\)[[:alnum:]([{&*+-]" 1)
   :tail-matcher (cons "\\(`\\)[^`]" 1)
   :allow-nested nil)
