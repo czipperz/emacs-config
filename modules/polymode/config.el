@@ -42,7 +42,6 @@
 (define-obsolete-variable-alias 'pm-host/markdown 'poly-markdown-hostmode "v0.2")
 (define-obsolete-variable-alias 'pm-inner/markdown-yaml-metadata 'poly-markdown-yaml-metadata-innermode "v0.2")
 (define-obsolete-variable-alias 'pm-inner/markdown-fenced-code 'poly-markdown-fenced-code-innermode "v0.2")
-(define-obsolete-variable-alias 'pm-inner/markdown-inline-code 'poly-markdown-inline-code-innermode "v0.2")
 (define-obsolete-variable-alias 'pm-inner/markdown-displayed-math 'poly-markdown-displayed-math-innermode "v0.2")
 (define-obsolete-variable-alias 'pm-inner/markdown-inline-math 'poly-markdown-inline-math-innermode "v0.2")
 (define-obsolete-variable-alias 'pm-poly/markdown 'poly-markdown-polymode "v0.2")
@@ -67,11 +66,6 @@
                                                #'poly-markdown-fenced-code-begin-accessor)
   :tail-matcher (pm-make-text-property-matcher 'markdown-gfm-block-end)
   :mode-matcher (cons "```[ \t]*{?\\(?:lang *= *\\)?\\([^ \t\n;=,}]+\\)" 1))
-
-(define-innermode poly-markdown-inline-code-innermode poly-markdown-root-innermode
-  :head-matcher (cons "[^`]\\(`\\)[[:alnum:]([{&*+-]" 1)
-  :tail-matcher (cons "\\(`\\)[^`]" 1)
-  :allow-nested nil)
 
 (defun poly-markdown-fenced-code-begin-accessor (val)
   (cons (point)
@@ -133,7 +127,6 @@ character."
 (define-polymode poly-markdown-mode
   :hostmode 'poly-markdown-hostmode
   :innermodes '(poly-markdown-fenced-code-innermode
-                poly-markdown-inline-code-innermode
                 poly-markdown-displayed-math-innermode
                 poly-markdown-inline-math-innermode
                 poly-markdown-yaml-metadata-innermode))
